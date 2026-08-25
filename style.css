@@ -91,6 +91,110 @@ nav ul li a.active {
     color: #0b1a2e !important;
 }
 
+/* ===== HERO SECTION (Like Thomas Chase) ===== */
+.hero {
+    text-align: center;
+    padding: 50px 20px 40px;
+    background: rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.hero h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #facc15;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+    text-transform: lowercase;
+}
+
+.hero h2::first-letter {
+    text-transform: uppercase;
+}
+
+.hero p {
+    font-size: 1.15rem;
+    color: #cbd5e1;
+    max-width: 750px;
+    margin: 0 auto 20px;
+}
+
+/* Hero Contact Info */
+.hero-contact {
+    background: rgba(255, 255, 255, 0.06);
+    border-radius: 60px;
+    padding: 14px 25px;
+    display: inline-block;
+    margin: 10px auto 25px;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+}
+
+.hero-contact p {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 20px;
+    margin: 0;
+    font-size: 0.95rem;
+    color: #cbd5e1;
+}
+
+.hero-contact span {
+    color: #e2e8f0;
+}
+
+.hero-contact span:first-child {
+    color: #facc15;
+}
+
+/* Hero Buttons */
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 10px;
+}
+
+.btn-contact {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 35px;
+    border-radius: 60px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn-contact:hover {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.btn-book {
+    display: inline-block;
+    background: linear-gradient(135deg, #facc15, #f59e0b);
+    color: #0b1a2e;
+    font-weight: 700;
+    padding: 14px 40px;
+    border-radius: 60px;
+    text-decoration: none;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(250, 204, 21, 0.3);
+}
+
+.btn-book:hover {
+    transform: scale(1.04);
+    box-shadow: 0 12px 35px rgba(250, 204, 21, 0.5);
+}
+
 /* ===== SECTION TITLES ===== */
 .section-title {
     font-size: 2.2rem;
@@ -107,46 +211,7 @@ nav ul li a.active {
     font-size: 1.05rem;
 }
 
-/* ===== HERO (index.html) ===== */
-.hero {
-    text-align: center;
-    padding: 40px 20px 30px;
-}
-
-.hero h2 {
-    font-size: 2.8rem;
-    font-weight: 700;
-    color: #fff;
-    margin-bottom: 12px;
-    letter-spacing: -0.5px;
-}
-
-.hero p {
-    font-size: 1.15rem;
-    color: #cbd5e1;
-    max-width: 700px;
-    margin: 0 auto 25px;
-}
-
-.btn-hero {
-    display: inline-block;
-    background: linear-gradient(135deg, #facc15, #f59e0b);
-    color: #0b1a2e;
-    font-weight: 700;
-    padding: 16px 40px;
-    border-radius: 60px;
-    text-decoration: none;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 25px rgba(250, 204, 21, 0.3);
-}
-
-.btn-hero:hover {
-    transform: scale(1.04);
-    box-shadow: 0 12px 35px rgba(250, 204, 21, 0.5);
-}
-
-/* ===== FEATURES (index.html) ===== */
+/* ===== FEATURES ===== */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -188,7 +253,7 @@ nav ul li a.active {
     font-size: 0.95rem;
 }
 
-/* ===== ABOUT PREVIEW (index.html) ===== */
+/* ===== ABOUT PREVIEW ===== */
 .about-preview {
     text-align: center;
     background: rgba(0, 0, 0, 0.25);
@@ -219,7 +284,7 @@ nav ul li a.active {
     border-bottom-color: #fff;
 }
 
-/* ===== SERVICES GRID (index.html & services.html) ===== */
+/* ===== SERVICES GRID ===== */
 .service-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -274,7 +339,7 @@ nav ul li a.active {
     transform: translateX(4px);
 }
 
-/* ===== CTA (index.html) ===== */
+/* ===== CTA ===== */
 .cta {
     text-align: center;
     background: rgba(250, 204, 21, 0.08);
@@ -308,7 +373,7 @@ nav ul li a.active {
     box-shadow: 0 12px 35px rgba(250, 204, 21, 0.5);
 }
 
-/* ===== ABOUT PAGE (about.html) ===== */
+/* ===== ABOUT PAGE ===== */
 .about-content {
     max-width: 800px;
     margin: 0 auto;
@@ -349,7 +414,7 @@ nav ul li a.active {
     color: #e2e8f0;
 }
 
-/* ===== CONTACT PAGE (contact.html) ===== */
+/* ===== CONTACT PAGE ===== */
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -360,7 +425,7 @@ nav ul li a.active {
 .contact-info {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 16px;
 }
 
 .contact-item {
@@ -404,7 +469,7 @@ nav ul li a.active {
     text-align: center;
 }
 
-/* ===== BOOKING FORM (booking.html) ===== */
+/* ===== BOOKING FORM ===== */
 .booking-section {
     margin: 20px 0;
 }
@@ -419,7 +484,7 @@ nav ul li a.active {
     margin: 0 auto;
 }
 
-/* ===== FORM ELEMENTS (shared) ===== */
+/* ===== FORM ELEMENTS ===== */
 .form-group {
     margin-bottom: 20px;
 }
@@ -566,6 +631,33 @@ footer p:last-child {
         font-size: 2rem;
     }
 
+    .hero-contact {
+        border-radius: 30px;
+        padding: 12px 18px;
+    }
+
+    .hero-contact p {
+        flex-direction: column;
+        gap: 6px;
+        font-size: 0.85rem;
+    }
+
+    .hero-contact span {
+        display: inline;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .btn-contact,
+    .btn-book {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
     .section-title {
         font-size: 1.6rem;
     }
@@ -593,12 +685,6 @@ footer p:last-child {
 
     .cta h2 {
         font-size: 1.5rem;
-    }
-
-    .btn-hero,
-    .btn-cta {
-        padding: 14px 28px;
-        font-size: 1rem;
     }
 }
 
