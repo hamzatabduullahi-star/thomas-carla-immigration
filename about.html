@@ -1,575 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>About | Thomas Carla</title>
-
-    <meta name="description"
-        content="Learn more about Thomas Carla and the immigration consultation services provided.">
-
-    <link rel="stylesheet" href="css/style.css">
-
-    <style>
-        /* =========================
-           ABOUT PAGE
-        ========================== */
-
-        .page-hero {
-            background: #0b2b4a;
-            color: #ffffff;
-            padding: 75px 0;
-        }
-
-        .page-hero-content {
-            max-width: 760px;
-        }
-
-        .page-hero h1 {
-            font-size: 52px;
-            line-height: 1.1;
-            margin-bottom: 18px;
-        }
-
-        .page-hero p {
-            max-width: 650px;
-            color: #d5e0e8;
-            font-size: 16px;
-        }
-
-        .about-main {
-            padding: 90px 0;
-        }
-
-        .about-main-grid {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 70px;
-            align-items: center;
-        }
-
-        .profile-card {
-            min-height: 500px;
-            background: linear-gradient(
-                145deg,
-                #dfe8ee,
-                #b8c8d2
-            );
-            border-radius: 6px;
-            display: flex;
-            align-items: flex-end;
-            padding: 30px;
-        }
-
-        .profile-info {
-            width: 100%;
-            background: rgba(11, 43, 74, 0.96);
-            color: #ffffff;
-            padding: 22px;
-            border-left: 4px solid #c9a84c;
-        }
-
-        .profile-info h2 {
-            font-size: 23px;
-            margin-bottom: 4px;
-        }
-
-        .profile-info p {
-            color: #cbd9e2;
-            font-size: 13px;
-        }
-
-        .about-text h2 {
-            color: #0b2b4a;
-            font-size: 42px;
-            line-height: 1.15;
-            margin-bottom: 22px;
-        }
-
-        .about-text p {
-            color: #687582;
-            margin-bottom: 18px;
-        }
-
-        .values-section {
-            background: #f5f7f9;
-            padding: 90px 0;
-        }
-
-        .values-heading {
-            max-width: 700px;
-            margin-bottom: 45px;
-        }
-
-        .values-heading h2 {
-            color: #0b2b4a;
-            font-size: 40px;
-            line-height: 1.15;
-            margin-bottom: 12px;
-        }
-
-        .values-heading p {
-            color: #687582;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-        }
-
-        .value-card {
-            background: #ffffff;
-            border: 1px solid #e3e8ed;
-            padding: 32px;
-        }
-
-        .value-number {
-            color: #c9a84c;
-            font-size: 13px;
-            font-weight: 800;
-            letter-spacing: 1px;
-            margin-bottom: 20px;
-        }
-
-        .value-card h3 {
-            color: #0b2b4a;
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
-
-        .value-card p {
-            color: #687582;
-            font-size: 14px;
-        }
-
-        .about-cta {
-            background: #0b2b4a;
-            color: #ffffff;
-            padding: 75px 0;
-        }
-
-        .about-cta-inner {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 40px;
-        }
-
-        .about-cta h2 {
-            max-width: 650px;
-            font-size: 38px;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-        .about-cta p {
-            color: #d3dfe7;
-        }
-
-        @media (max-width: 850px) {
-
-            .page-hero h1 {
-                font-size: 42px;
-            }
-
-            .about-main {
-                padding: 70px 0;
-            }
-
-            .about-main-grid {
-                grid-template-columns: 1fr;
-                gap: 45px;
-            }
-
-            .profile-card {
-                min-height: 400px;
-            }
-
-            .values-section {
-                padding: 70px 0;
-            }
-
-            .values-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-cta-inner {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media (max-width: 480px) {
-
-            .page-hero {
-                padding: 60px 0;
-            }
-
-            .page-hero h1 {
-                font-size: 36px;
-            }
-
-            .about-text h2,
-            .values-heading h2 {
-                font-size: 33px;
-            }
-
-            .about-cta h2 {
-                font-size: 31px;
-            }
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About - Thomas Carla Immigration</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-    <!-- =========================
-         HEADER
-    ========================== -->
+    <div class="container">
 
-    <header class="header">
-
-        <div class="container nav-container">
-
-            <a href="index.html" class="logo">
-                Thomas <span>Carla</span>
-            </a>
-
-            <nav class="navbar">
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="about.html" class="active">
-                    About
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-                <a href="booking.html" class="nav-btn">
-                    Book Consultation
-                </a>
-
+        <!-- ===== HEADER / NAV ===== -->
+        <header>
+            <div class="logo">
+                <h1>Thomas Carla Immigration</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html" class="btn-nav">Book Now</a></li>
+                </ul>
             </nav>
+        </header>
 
-            <button
-                class="menu-toggle"
-                aria-label="Open menu">
-                ☰
-            </button>
-
-        </div>
-
-    </header>
-
-
-    <!-- =========================
-         PAGE HERO
-    ========================== -->
-
-    <section class="page-hero">
-
-        <div class="container">
-
-            <div class="page-hero-content">
-
-                <span class="section-label">
-                    ABOUT US
-                </span>
-
-                <h1>
-                    Professional Immigration Guidance
-                </h1>
-
-                <p>
-                    A consultation-focused service designed to help
-                    individuals better understand their immigration
-                    questions, options and possible next steps.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT CONTENT
-    ========================== -->
-
-    <section class="about-main">
-
-        <div class="container about-main-grid">
-
-            <div class="profile-card">
-
-                <div class="profile-info">
-
-                    <h2>
-                        Thomas Carla
-                    </h2>
-
-                    <p>
-                        Immigration Consultation Services
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="about-text">
-
-                <span class="section-label">
-                    WHO WE ARE
-                </span>
-
-                <h2>
-                    Making Immigration Conversations Clearer
-                </h2>
-
-                <p>
-                    Immigration decisions can involve many questions,
-                    documents and important considerations. Having the
-                    opportunity to discuss your situation with a
-                    consultation professional can help you understand
-                    what information may be relevant to your case.
-                </p>
-
-                <p>
-                    Thomas Carla provides a structured consultation
-                    experience where clients can explain their situation,
-                    ask questions and receive guidance based on the
-                    information discussed during the appointment.
-                </p>
-
-                <p>
-                    Every client has different circumstances, which is
-                    why consultations are approached with attention to
-                    the individual's particular concerns.
-                </p>
-
-                <a href="booking.html" class="btn btn-primary">
-                    Book a Consultation
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         VALUES
-    ========================== -->
-
-    <section class="values-section">
-
-        <div class="container">
-
-            <div class="values-heading">
-
-                <span class="section-label">
-                    OUR APPROACH
-                </span>
-
-                <h2>
-                    What You Can Expect
-                </h2>
-
-                <p>
-                    Our consultation process is designed around
-                    clarity, organization and professional communication.
-                </p>
-
-            </div>
-
-
-            <div class="values-grid">
-
-                <div class="value-card">
-
-                    <div class="value-number">
-                        01
+        <!-- ===== ABOUT CONTENT ===== -->
+        <section class="about-section">
+            <h2 class="section-title">About Thomas Carla</h2>
+            <div class="about-content">
+                <p>Thomas Carla is a dedicated immigration consultant with years of experience helping individuals and families navigate the complexities of immigration law.</p>
+                <p>Our mission is to provide clear, honest, and personalized guidance to everyone seeking to understand their immigration options.</p>
+                <p>We believe that every case is unique, and we take the time to understand your specific situation before offering any advice.</p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <span>✔</span>
+                        <p>Over 10 years of experience</p>
                     </div>
-
-                    <h3>
-                        Listen
-                    </h3>
-
-                    <p>
-                        Start by explaining your situation and the
-                        immigration questions you would like to discuss.
-                    </p>
-
-                </div>
-
-
-                <div class="value-card">
-
-                    <div class="value-number">
-                        02
+                    <div class="highlight-item">
+                        <span>✔</span>
+                        <p>Personalized consultation approach</p>
                     </div>
-
-                    <h3>
-                        Discuss
-                    </h3>
-
-                    <p>
-                        Use your scheduled consultation to discuss
-                        your questions and relevant circumstances.
-                    </p>
-
-                </div>
-
-
-                <div class="value-card">
-
-                    <div class="value-number">
-                        03
+                    <div class="highlight-item">
+                        <span>✔</span>
+                        <p>Confidential and professional service</p>
                     </div>
-
-                    <h3>
-                        Plan
-                    </h3>
-
-                    <p>
-                        Leave the consultation with a clearer
-                        understanding of the possible next steps.
-                    </p>
-
+                    <div class="highlight-item">
+                        <span>✔</span>
+                        <p>Clear guidance you can understand</p>
+                    </div>
                 </div>
-
+                <a href="booking.html" class="btn-hero" style="margin-top:20px; display:inline-block;">Book a Consultation →</a>
             </div>
+        </section>
 
-        </div>
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p>© 2026 Thomas Carla Immigration Consultation.</p>
+            <p>All consultations are confidential.</p>
+        </footer>
 
-    </section>
+    </div>
 
-
-    <!-- =========================
-         CTA
-    ========================== -->
-
-    <section class="about-cta">
-
-        <div class="container about-cta-inner">
-
-            <div>
-
-                <span class="section-label">
-                    GET STARTED
-                </span>
-
-                <h2>
-                    Have Immigration Questions?
-                </h2>
-
-                <p>
-                    Schedule a consultation at a convenient date
-                    and time.
-                </p>
-
-            </div>
-
-            <a href="booking.html" class="btn btn-light">
-                Book Consultation
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
-
-    <footer class="footer">
-
-        <div class="container footer-grid">
-
-            <div>
-
-                <a href="index.html" class="footer-logo">
-                    Thomas <span>Carla</span>
-                </a>
-
-                <p>
-                    Professional immigration consultation and
-                    appointment services.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Quick Links
-                </h4>
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-
-                <a href="services.html">
-                    Services
-                </a>
-
-                <a href="contact.html">
-                    Contact
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Appointments
-                </h4>
-
-                <a href="booking.html">
-                    Book Consultation
-                </a>
-
-                <a href="contact.html">
-                    Contact Us
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-bottom">
-
-            <p>
-                © 2026 Thomas Carla. All rights reserved.
-            </p>
-
-        </div>
-
-    </footer>
-
-
-    <script src="js/script.js"></script>
-
+    <script src="script.js"></script>
 </body>
 </html>
