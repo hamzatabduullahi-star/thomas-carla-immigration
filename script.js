@@ -18,8 +18,21 @@ document.addEventListener('DOMContentLoaded', function() {
         dateInput.min = year + '-' + month + '-' + day;
     }
 
-    // ===== CHECK FOR SUCCESS MESSAGE =====
+    // ===== AUTO-FILL SERVICE FROM URL =====
     const urlParams = new URLSearchParams(window.location.search);
+    const serviceFromUrl = urlParams.get('service');
+    const serviceInput = document.getElementById('serviceType');
+    
+    if (serviceFromUrl && serviceInput) {
+        // Decode the URL parameter (e.g., "Immigration%20Consultation" → "Immigration Consultation")
+        const decodedService = decodeURIComponent(serviceFromUrl);
+        serviceInput.value = decodedService;
+    } else if (serviceInput) {
+        serviceInput.value = 'Not selected (please go back to services page)';
+        serviceInput.style.color = '#94a3b8';
+    }
+
+    // ===== CHECK FOR SUCCESS MESSAGE =====
     if (urlParams.has('success') && urlParams.get('success') === 'true') {
         const formWrapper = document.getElementById('formWrapper');
         if (formWrapper) formWrapper.style.display = 'none';
@@ -48,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Collect form data
             const formData = {
+                service_type: document.getElementById('serviceType').value,
                 selected_date: document.querySelector('input[name="selected_date"]').value,
                 selected_time: document.querySelector('select[name="selected_time"]').value,
                 name: document.querySelector('input[name="name"]').value,
