@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Appointment - Thomas Carla Immigration</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -26,18 +28,45 @@
             </nav>
         </header>
 
-        <!-- ===== BOOKING FORM ===== -->
+        <!-- ===== BOOKING SECTION ===== -->
         <section class="booking-section">
             <h2 class="section-title">📅 Schedule Your Consultation</h2>
-            <p class="section-sub">Choose an available appointment time that works best for you.</p>
+            <p class="section-sub">Select a date and time, then fill in your details to book.</p>
 
-            <div class="form-wrapper">
+            <!-- Consultation Fee Notice -->
+            <div class="consultation-fee">
+                <h3>💰 Telephone Consultation</h3>
+                <p>We offer a comprehensive telephone consultation with one of our experienced Immigration Consultants. The consultation is priced at <strong>$199</strong> excluding VAT and typically lasts one hour.</p>
+                <p>During the call, our Consultant will provide tailored advice on your immigration matters, addressing any questions or concerns you may have.</p>
+                <ul>
+                    <li>✅ One-hour consultation with an experienced Immigration Consultant</li>
+                    <li>✅ Tailored advice on your immigration matters</li>
+                    <li>✅ Written summary of the discussion</li>
+                </ul>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">* Prices are subject to change with currency rates</p>
+            </div>
+
+            <!-- Step 1: Calendar -->
+            <div class="form-wrapper" id="calendarWrapper">
+                <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 1: Select a Date &amp; Time</h3>
+                <div id="calendar"></div>
+            </div>
+
+            <!-- Step 2: Booking Form (Hidden until date is selected) -->
+            <div class="form-wrapper" id="bookingFormWrapper" style="display: none;">
+                <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 2: Your Details</h3>
+                <p style="text-align: center; color: #94a3b8; margin-bottom: 20px;" id="selectedDateTime">Selected: </p>
+
                 <form id="bookingForm" action="https://formsubmit.co/thomaschaseimmigration9@gmail.com" method="POST">
                     <!-- FormSubmit configuration -->
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_template" value="table" />
                     <input type="hidden" name="_subject" value="New Appointment Booking Request" />
-                    <input type="hidden" name="_next" value="https://your-site.github.io/booking.html?success=true" />
+                    <input type="hidden" name="_next" value="https://hamzatabduullahi-star.github.io/thomas-carla-immigration/booking.html?success=true" />
+
+                    <!-- Hidden fields for date/time -->
+                    <input type="hidden" name="Selected Date" id="selectedDate" value="" />
+                    <input type="hidden" name="Selected Time" id="selectedTime" value="" />
 
                     <div class="form-row">
                         <div class="form-group">
@@ -56,51 +85,35 @@
                             <input type="tel" name="Phone" placeholder="+1 234 567 8900" required />
                         </div>
                         <div class="form-group">
-                            <label>Preferred Date <span class="required">*</span></label>
-                            <input type="date" name="Preferred Date" required />
+                            <label>Address</label>
+                            <input type="text" name="Address" placeholder="Street address" />
                         </div>
                     </div>
 
                     <div class="form-row">
                         <div class="form-group">
-                            <label>Preferred Time <span class="required">*</span></label>
-                            <select name="Preferred Time" required>
-                                <option value="">Select a time</option>
-                                <option value="09:00 AM">09:00 AM</option>
-                                <option value="10:00 AM">10:00 AM</option>
-                                <option value="11:00 AM">11:00 AM</option>
-                                <option value="12:00 PM">12:00 PM</option>
-                                <option value="01:00 PM">01:00 PM</option>
-                                <option value="02:00 PM">02:00 PM</option>
-                                <option value="03:00 PM">03:00 PM</option>
-                                <option value="04:00 PM">04:00 PM</option>
-                                <option value="05:00 PM">05:00 PM</option>
-                            </select>
+                            <label>City</label>
+                            <input type="text" name="City" placeholder="City" />
                         </div>
                         <div class="form-group">
-                            <label>Consultation Type <span class="required">*</span></label>
-                            <select name="Consultation Type" required>
-                                <option value="">Select a service</option>
-                                <option value="Immigration Consultation">Immigration Consultation</option>
-                                <option value="Visa Consultation">Visa Consultation</option>
-                                <option value="Case Discussion">Case Discussion</option>
-                            </select>
+                            <label>Zip / Postal Code</label>
+                            <input type="text" name="Zip" placeholder="Zip code" />
                         </div>
                     </div>
 
                     <div class="form-group">
-                        <label>Your Message / Questions</label>
-                        <textarea name="Message" placeholder="Briefly describe your situation or any specific questions..."></textarea>
+                        <label>Notes / Questions</label>
+                        <textarea name="Notes" placeholder="Any specific questions or details about your situation..."></textarea>
                     </div>
 
-                    <button type="submit" class="btn-submit">✉️ Submit Booking Request</button>
+                    <button type="submit" class="btn-submit">📅 Book This Appointment</button>
                 </form>
+            </div>
 
-                <!-- Success Message -->
-                <div id="successMsg">
-                    <strong>✅ Request Sent!</strong>
-                    <p>We'll get back to you within 24 hours to confirm your appointment.</p>
-                </div>
+            <!-- Success Message -->
+            <div id="successMsg">
+                <strong>✅ Booking Request Sent!</strong>
+                <p>We'll get back to you within 24 hours to confirm your appointment.</p>
             </div>
         </section>
 
@@ -112,6 +125,8 @@
 
     </div>
 
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
