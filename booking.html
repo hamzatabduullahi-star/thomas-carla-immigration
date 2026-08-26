@@ -45,7 +45,7 @@
             </div>
 
             <!-- ===== BOOKING FORM ===== -->
-            <div class="form-wrapper">
+            <div class="form-wrapper" id="formWrapper">
                 <h3 style="color: #facc15; text-align: center; margin-bottom: 20px;">Book Your Consultation</h3>
 
                 <form id="bookingForm" action="https://formsubmit.co/thomaschaseimmigration9@gmail.com" method="POST">
@@ -53,6 +53,7 @@
                     <input type="hidden" name="_captcha" value="false" />
                     <input type="hidden" name="_template" value="table" />
                     <input type="hidden" name="_subject" value="New Appointment Booking Request" />
+                    <!-- THIS IS THE IMPORTANT LINE - Redirects back to booking page with success -->
                     <input type="hidden" name="_next" value="https://hamzatabduullahi-star.github.io/thomas-carla-immigration/booking.html?success=true" />
 
                     <!-- ===== DATE & TIME SELECTION (IN THE FORM) ===== -->
@@ -137,6 +138,9 @@
             <div id="successMsg">
                 <strong>✅ Booking Request Sent!</strong>
                 <p>We'll get back to you within 24 hours to confirm your appointment.</p>
+                <p style="margin-top: 10px; color: #94a3b8; font-size: 0.9rem;">
+                    <a href="index.html" style="color: #facc15;">← Return to Home</a>
+                </p>
             </div>
         </section>
 
