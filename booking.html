@@ -29,7 +29,7 @@
         <!-- ===== BOOKING SECTION ===== -->
         <section class="booking-section">
             <h2 class="section-title">📅 Schedule Your Consultation</h2>
-            <p class="section-sub">Select a date and time, then fill in your details to book.</p>
+            <p class="section-sub">Fill in your details below to book your consultation.</p>
 
             <!-- Consultation Fee Notice -->
             <div class="consultation-fee">
@@ -44,7 +44,7 @@
                 <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">* Prices are subject to change with currency rates</p>
             </div>
 
-            <!-- ===== SIMPLE BOOKING FORM ===== -->
+            <!-- ===== BOOKING FORM ===== -->
             <div class="form-wrapper">
                 <h3 style="color: #facc15; text-align: center; margin-bottom: 20px;">Book Your Consultation</h3>
 
@@ -55,66 +55,72 @@
                     <input type="hidden" name="_subject" value="New Appointment Booking Request" />
                     <input type="hidden" name="_next" value="https://hamzatabduullahi-star.github.io/thomas-carla-immigration/booking.html?success=true" />
 
-                    <!-- ===== DATE & TIME SELECTION ===== -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Preferred Date <span class="required">*</span></label>
-                            <input type="date" name="Preferred Date" id="bookingDate" required />
+                    <!-- ===== DATE & TIME SELECTION (IN THE FORM) ===== -->
+                    <div style="background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 16px; margin-bottom: 25px; border: 1px solid rgba(255, 215, 0, 0.1);">
+                        <h4 style="color: #facc15; margin-bottom: 15px; text-align: center;">📌 Select Your Preferred Date & Time</h4>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Preferred Date <span class="required">*</span></label>
+                                <input type="date" name="Preferred Date" id="bookingDate" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Preferred Time <span class="required">*</span></label>
+                                <select name="Preferred Time" required>
+                                    <option value="">Select a time</option>
+                                    <option value="09:00 AM">09:00 AM</option>
+                                    <option value="10:00 AM">10:00 AM</option>
+                                    <option value="11:00 AM">11:00 AM</option>
+                                    <option value="12:00 PM">12:00 PM</option>
+                                    <option value="01:00 PM">01:00 PM</option>
+                                    <option value="02:00 PM">02:00 PM</option>
+                                    <option value="03:00 PM">03:00 PM</option>
+                                    <option value="04:00 PM">04:00 PM</option>
+                                    <option value="05:00 PM">05:00 PM</option>
+                                </select>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Preferred Time <span class="required">*</span></label>
-                            <select name="Preferred Time" required>
-                                <option value="">Select a time</option>
-                                <option value="09:00 AM">09:00 AM</option>
-                                <option value="10:00 AM">10:00 AM</option>
-                                <option value="11:00 AM">11:00 AM</option>
-                                <option value="12:00 PM">12:00 PM</option>
-                                <option value="01:00 PM">01:00 PM</option>
-                                <option value="02:00 PM">02:00 PM</option>
-                                <option value="03:00 PM">03:00 PM</option>
-                                <option value="04:00 PM">04:00 PM</option>
-                                <option value="05:00 PM">05:00 PM</option>
-                            </select>
+
+                        <div style="text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 10px;">
+                            📌 Available: Monday - Friday, 9:00 AM - 6:00 PM
                         </div>
                     </div>
-
-                    <div class="form-group" style="text-align: center; color: #94a3b8; font-size: 0.9rem; margin-bottom: 20px;">
-                        📌 Available: Monday - Friday, 9:00 AM - 6:00 PM
-                    </div>
-
-                    <hr style="border-color: rgba(255,255,255,0.1); margin: 20px 0;" />
 
                     <!-- ===== PERSONAL DETAILS ===== -->
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Full Name <span class="required">*</span></label>
-                            <input type="text" name="Name" placeholder="e.g. John Doe" required />
-                        </div>
-                        <div class="form-group">
-                            <label>Email Address <span class="required">*</span></label>
-                            <input type="email" name="Email" placeholder="you@example.com" required />
-                        </div>
-                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.05);">
+                        <h4 style="color: #facc15; margin-bottom: 15px; text-align: center;">👤 Your Personal Details</h4>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Phone Number <span class="required">*</span></label>
-                            <input type="tel" name="Phone" placeholder="+1 234 567 8900" required />
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name <span class="required">*</span></label>
+                                <input type="text" name="Name" placeholder="e.g. John Doe" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Email Address <span class="required">*</span></label>
+                                <input type="email" name="Email" placeholder="you@example.com" required />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Address</label>
-                            <input type="text" name="Address" placeholder="Street address" />
-                        </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" name="City" placeholder="City" />
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <input type="tel" name="Phone" placeholder="+1 234 567 8900" required />
+                            </div>
+                            <div class="form-group">
+                                <label>Address</label>
+                                <input type="text" name="Address" placeholder="Street address" />
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label>Zip / Postal Code</label>
-                            <input type="text" name="Zip" placeholder="Zip code" />
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" name="City" placeholder="City" />
+                            </div>
+                            <div class="form-group">
+                                <label>Zip / Postal Code</label>
+                                <input type="text" name="Zip" placeholder="Zip code" />
+                            </div>
                         </div>
                     </div>
 
