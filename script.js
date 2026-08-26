@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function() {
         slotMaxTime: '18:00:00',
         allDaySlot: false,
         
-        // When user selects a date/time
+        // When user selects a date/time - UPDATE THE FORM
         select: function(info) {
             // Get the selected date and time
             var selectedDate = info.start.toLocaleDateString('en-US', {
@@ -50,16 +50,18 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('selectedDate').value = selectedDate;
             document.getElementById('selectedTime').value = selectedTime;
             
-            // Show selected date/time on form
+            // UPDATE the form with selected date/time
             document.getElementById('selectedDateTime').innerHTML = 
-                'Selected: <strong style="color:#facc15;">' + selectedDate + ' at ' + selectedTime + '</strong>';
+                '📌 Selected: <strong style="color:#facc15;">' + selectedDate + ' at ' + selectedTime + '</strong>';
             
-            // Hide calendar, show form
-            document.getElementById('calendarWrapper').style.display = 'none';
-            document.getElementById('bookingFormWrapper').style.display = 'block';
+            // Highlight the form to show it's ready
+            document.getElementById('selectedDateTime').style.background = 'rgba(250, 204, 21, 0.1)';
+            document.getElementById('selectedDateTime').style.border = '1px solid #facc15';
             
-            // Scroll to form
-            document.getElementById('bookingFormWrapper').scrollIntoView({ behavior: 'smooth' });
+            // Scroll to form on mobile
+            if (window.innerWidth < 768) {
+                document.getElementById('selectedDateTime').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
         },
         
         // Click on date to show available times
@@ -89,8 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
     if (urlParams.has('success') && urlParams.get('success') === 'true') {
         const successMsg = document.getElementById('successMsg');
         const form = document.getElementById('bookingForm');
-        const calendarWrapper = document.getElementById('calendarWrapper');
-        const formWrapper = document.getElementById('bookingFormWrapper');
+        const calendarWrapper = document.querySelector('.booking-calendar');
+        const formWrapper = document.querySelector('.booking-form');
 
         if (successMsg) {
             successMsg.style.display = 'block';
@@ -104,6 +106,11 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (formWrapper) {
             formWrapper.style.display = 'none';
+        }
+        // Hide the fee section too
+        var feeSection = document.querySelector('.consultation-fee');
+        if (feeSection) {
+            feeSection.style.display = 'none';
         }
     }
 });
