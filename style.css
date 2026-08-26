@@ -91,7 +91,7 @@ nav ul li a.active {
     color: #0b1a2e !important;
 }
 
-/* ===== HERO SECTION (Like Thomas Chase) ===== */
+/* ===== HERO SECTION ===== */
 .hero {
     text-align: center;
     padding: 50px 20px 40px;
@@ -121,11 +121,11 @@ nav ul li a.active {
     margin: 0 auto 20px;
 }
 
-/* Hero Contact Info */
+/* Hero Contact - Only Email */
 .hero-contact {
     background: rgba(255, 255, 255, 0.06);
     border-radius: 60px;
-    padding: 14px 25px;
+    padding: 12px 30px;
     display: inline-block;
     margin: 10px auto 25px;
     border: 1px solid rgba(255, 215, 0, 0.1);
@@ -137,15 +137,11 @@ nav ul li a.active {
     justify-content: center;
     gap: 10px 20px;
     margin: 0;
-    font-size: 0.95rem;
-    color: #cbd5e1;
-}
-
-.hero-contact span {
+    font-size: 1rem;
     color: #e2e8f0;
 }
 
-.hero-contact span:first-child {
+.hero-contact span {
     color: #facc15;
 }
 
@@ -481,7 +477,123 @@ nav ul li a.active {
     border: 1px solid rgba(255, 215, 0, 0.12);
     backdrop-filter: blur(6px);
     max-width: 850px;
-    margin: 0 auto;
+    margin: 0 auto 25px;
+}
+
+/* ===== CONSULTATION FEE SECTION ===== */
+.consultation-fee {
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 20px;
+    padding: 30px 35px;
+    margin: 20px auto 30px;
+    max-width: 850px;
+    border-left: 4px solid #facc15;
+}
+
+.consultation-fee h3 {
+    color: #facc15;
+    font-size: 1.5rem;
+    margin-bottom: 12px;
+}
+
+.consultation-fee p {
+    color: #cbd5e1;
+    margin-bottom: 10px;
+}
+
+.consultation-fee ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.consultation-fee ul li {
+    color: #cbd5e1;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.consultation-fee ul li:last-child {
+    border-bottom: none;
+}
+
+.consultation-fee ul li::before {
+    content: "✅ ";
+}
+
+/* ===== CALENDAR STYLES ===== */
+#calendar {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 16px;
+    padding: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #fff;
+}
+
+/* FullCalendar overrides */
+.fc {
+    color: #e2e8f0;
+}
+
+.fc .fc-toolbar-title {
+    color: #facc15;
+    font-size: 1.3rem !important;
+}
+
+.fc .fc-button-primary {
+    background: rgba(250, 204, 21, 0.15);
+    border: 1px solid rgba(250, 204, 21, 0.3);
+    color: #facc15;
+}
+
+.fc .fc-button-primary:hover {
+    background: rgba(250, 204, 21, 0.25);
+}
+
+.fc .fc-button-primary:not(:disabled):active,
+.fc .fc-button-primary:not(:disabled).fc-button-active {
+    background: #facc15;
+    color: #0b1a2e;
+    border-color: #facc15;
+}
+
+.fc .fc-daygrid-day {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.fc .fc-daygrid-day.fc-day-today {
+    background: rgba(250, 204, 21, 0.08);
+}
+
+.fc .fc-daygrid-day-number {
+    color: #cbd5e1;
+}
+
+.fc .fc-col-header-cell {
+    background: rgba(255, 255, 255, 0.05);
+    color: #facc15;
+    padding: 8px 0;
+}
+
+.fc .fc-timegrid-slot-label {
+    color: #94a3b8;
+}
+
+.fc .fc-timegrid-slot {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.fc .fc-timegrid-slot.fc-timegrid-slot-lane:hover {
+    background: rgba(250, 204, 21, 0.05);
+}
+
+.fc .fc-highlight {
+    background: rgba(250, 204, 21, 0.2);
+}
+
+.fc .fc-daygrid-day-frame:hover {
+    background: rgba(250, 204, 21, 0.05);
+    cursor: pointer;
 }
 
 /* ===== FORM ELEMENTS ===== */
@@ -642,10 +754,6 @@ footer p:last-child {
         font-size: 0.85rem;
     }
 
-    .hero-contact span {
-        display: inline;
-    }
-
     .hero-buttons {
         flex-direction: column;
         align-items: center;
@@ -685,6 +793,10 @@ footer p:last-child {
 
     .cta h2 {
         font-size: 1.5rem;
+    }
+
+    .consultation-fee {
+        padding: 20px 18px;
     }
 }
 
