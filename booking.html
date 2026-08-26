@@ -52,6 +52,15 @@
                 <h3 style="color: #facc15; text-align: center; margin-bottom: 20px;">Book Your Consultation</h3>
 
                 <form id="bookingForm">
+                    <!-- ===== SERVICE TYPE (Auto-filled from URL) ===== -->
+                    <div style="background: rgba(255, 215, 0, 0.08); padding: 15px 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255, 215, 0, 0.15);">
+                        <label style="color: #e2e8f0; font-weight: 500; display: block; margin-bottom: 5px;">
+                            📌 Service Type <span class="required">*</span>
+                        </label>
+                        <input type="text" name="service_type" id="serviceType" readonly 
+                               style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid rgba(255,215,0,0.2); background:rgba(255,255,255,0.05); color:#facc15; font-weight:600; cursor:default;" />
+                    </div>
+
                     <!-- ===== DATE & TIME SELECTION ===== -->
                     <div style="background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 16px; margin-bottom: 25px; border: 1px solid rgba(255, 215, 0, 0.1);">
                         <h4 style="color: #facc15; margin-bottom: 15px; text-align: center;">📌 Select Your Preferred Date & Time</h4>
