@@ -10,23 +10,27 @@ document.addEventListener('DOMContentLoaded', function() {
         dateInput.min = year + '-' + month + '-' + day;
     }
 
-    // ===== SHOW SUCCESS MESSAGE =====
+    // ===== CHECK FOR SUCCESS MESSAGE =====
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.has('success') && urlParams.get('success') === 'true') {
-        const successMsg = document.getElementById('successMsg');
-        const form = document.getElementById('bookingForm');
-
-        if (successMsg) {
-            successMsg.style.display = 'block';
-            successMsg.scrollIntoView({ behavior: 'smooth' });
+        // Hide the form
+        const formWrapper = document.getElementById('formWrapper');
+        if (formWrapper) {
+            formWrapper.style.display = 'none';
         }
-        if (form) {
-            form.style.display = 'none';
-        }
-        // Hide the fee section too
+        
+        // Hide the fee section
         var feeSection = document.querySelector('.consultation-fee');
         if (feeSection) {
             feeSection.style.display = 'none';
+        }
+        
+        // Show success message
+        const successMsg = document.getElementById('successMsg');
+        if (successMsg) {
+            successMsg.style.display = 'block';
+            // Scroll to success message
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 });
