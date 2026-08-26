@@ -1,30 +1,42 @@
 // ================================================================
+// THOMAS CARLA IMMIGRATION
+// EMAILJS + BOOKING SYSTEM
+// ================================================================
+
+
+// ================================================================
 // EMAILJS CONFIGURATION
 // ================================================================
 
 const EMAILJS_PUBLIC_KEY = 'BaMHIw9kfA9clVk2L';
 const EMAILJS_SERVICE_ID = 'service_n2vnl2h';
-const EMAILJS_TEMPLATE_ID = 'template_wt6u974';
+const EMAILJS_TEMPLATE_ID = 'template_0qa04br';
 
-// Initialize EmailJS
+
+// ================================================================
+// INITIALIZE EMAILJS
+// ================================================================
+
 emailjs.init({
     publicKey: EMAILJS_PUBLIC_KEY
 });
 
 
 // ================================================================
-// PAGE INITIALIZATION
+// PAGE LOAD
 // ================================================================
 
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ------------------------------------------------------------
-    // SET MINIMUM DATE
-    // ------------------------------------------------------------
+
+    // ============================================================
+    // SET MINIMUM BOOKING DATE
+    // ============================================================
 
     const dateInput = document.getElementById('bookingDate');
 
     if (dateInput) {
+
         const today = new Date();
 
         const year = today.getFullYear();
@@ -35,51 +47,64 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // ------------------------------------------------------------
-    // GET SERVICE FROM URL
-    // ------------------------------------------------------------
+    // ============================================================
+    // AUTO-FILL SERVICE TYPE FROM URL
+    // ============================================================
 
     const urlParams = new URLSearchParams(window.location.search);
+
     const serviceFromUrl = urlParams.get('service');
 
     const serviceInput = document.getElementById('serviceType');
 
     if (serviceFromUrl && serviceInput) {
 
-        serviceInput.value = decodeURIComponent(serviceFromUrl);
+        try {
+
+            serviceInput.value = decodeURIComponent(serviceFromUrl);
+
+        } catch (error) {
+
+            serviceInput.value = serviceFromUrl;
+
+        }
 
     } else if (serviceInput) {
 
         serviceInput.value = 'Immigration Consultation';
-        serviceInput.style.color = '#94a3b8';
 
     }
 
 
-    // ------------------------------------------------------------
-    // SHOW SUCCESS MESSAGE IF REDIRECTED
-    // ------------------------------------------------------------
+    // ============================================================
+    // SHOW SUCCESS PAGE
+    // ============================================================
 
     if (
-        urlParams.has('success') &&
         urlParams.get('success') === 'true'
     ) {
 
-        const formWrapper = document.getElementById('formWrapper');
+        const formWrapper =
+            document.getElementById('formWrapper');
 
         if (formWrapper) {
             formWrapper.style.display = 'none';
         }
 
-        const feeSection = document.querySelector('.consultation-fee');
+
+        const feeSection =
+            document.querySelector('.consultation-fee');
 
         if (feeSection) {
             feeSection.style.display = 'none';
         }
 
-        const successMsg = document.getElementById('successMsg');
+
+        const successMsg =
+            document.getElementById('successMsg');
 
         if (successMsg) {
+
             successMsg.style.display = 'block';
 
             successMsg.scrollIntoView({
@@ -94,109 +119,169 @@ document.addEventListener('DOMContentLoaded', function () {
     // BOOKING FORM
     // ============================================================
 
-    const bookingForm = document.getElementById('bookingForm');
+    const bookingForm =
+        document.getElementById('bookingForm');
+
 
     if (bookingForm) {
 
-        bookingForm.addEventListener('submit', function (event) {
+        bookingForm.addEventListener(
+            'submit',
+            function (event) {
 
-            event.preventDefault();
-
-            const submitBtn = document.getElementById('submitBtn');
-            const loadingMsg = document.getElementById('loadingMsg');
-            const errorMsg = document.getElementById('errorMsg');
-
-            // Hide old error
-            if (errorMsg) {
-                errorMsg.style.display = 'none';
-            }
-
-            // Show loading
-            if (submitBtn) {
-                submitBtn.disabled = true;
-                submitBtn.style.display = 'none';
-            }
-
-            if (loadingMsg) {
-                loadingMsg.style.display = 'block';
-            }
+                event.preventDefault();
 
 
-            // ----------------------------------------------------
-            // SEND BOOKING THROUGH EMAILJS
-            // ----------------------------------------------------
+                // ------------------------------------------------
+                // GET BUTTONS / MESSAGES
+                // ------------------------------------------------
 
-            emailjs.sendForm(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                bookingForm
-            )
+                const submitBtn =
+                    document.getElementById('submitBtn');
 
-            .then(function (response) {
+                const loadingMsg =
+                    document.getElementById('loadingMsg');
 
-                console.log(
-                    'BOOKING SENT SUCCESSFULLY:',
-                    response.status,
-                    response.text
-                );
+                const errorMsg =
+                    document.getElementById('errorMsg');
 
-                // Redirect to success page
-                window.location.href =
-                    'booking.html?success=true';
 
-            })
+                // ------------------------------------------------
+                // HIDE PREVIOUS ERROR
+                // ------------------------------------------------
 
-            .catch(function (error) {
-
-                console.error(
-                    'EMAILJS BOOKING ERROR:',
-                    error
-                );
-
-                console.error(
-                    'ERROR TEXT:',
-                    error.text
-                );
-
-                // Restore button
-                if (submitBtn) {
-                    submitBtn.disabled = false;
-                    submitBtn.style.display = 'block';
+                if (errorMsg) {
+                    errorMsg.style.display = 'none';
                 }
+
+
+                // ------------------------------------------------
+                // SHOW LOADING
+                // ------------------------------------------------
+
+                if (submitBtn) {
+
+                    submitBtn.disabled = true;
+
+                    submitBtn.style.display = 'none';
+                }
+
 
                 if (loadingMsg) {
-                    loadingMsg.style.display = 'none';
+
+                    loadingMsg.style.display = 'block';
                 }
 
-                // Show error
-                if (errorMsg) {
 
-                    errorMsg.innerHTML = `
-                        <strong>❌ Something went wrong!</strong>
-                        <p>
-                            We could not send your booking request.
-                            Please try again.
-                        </p>
-                        <p style="font-size:0.8rem; margin-top:10px; opacity:0.8;">
-                            Error: ${error.text || 'Email service error'}
-                        </p>
-                        <p style="margin-top:10px;">
-                            Please contact us at
-                            thomaschaseimmigration9@gmail.com
-                        </p>
-                    `;
+                // ------------------------------------------------
+                // SEND FORM THROUGH EMAILJS
+                // ------------------------------------------------
 
-                    errorMsg.style.display = 'block';
+                emailjs.sendForm(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    bookingForm
+                )
 
-                    errorMsg.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'center'
-                    });
-                }
+                .then(function (response) {
 
-            });
+                    console.log(
+                        'BOOKING SENT SUCCESSFULLY',
+                        response.status,
+                        response.text
+                    );
 
-        });
+
+                    // --------------------------------------------
+                    // REDIRECT TO SUCCESS MESSAGE
+                    // --------------------------------------------
+
+                    window.location.href =
+                        'booking.html?success=true';
+
+                })
+
+
+                .catch(function (error) {
+
+                    console.error(
+                        'EMAILJS BOOKING ERROR:',
+                        error
+                    );
+
+                    console.error(
+                        'EMAILJS ERROR TEXT:',
+                        error.text
+                    );
+
+
+                    // --------------------------------------------
+                    // RESTORE BUTTON
+                    // --------------------------------------------
+
+                    if (submitBtn) {
+
+                        submitBtn.disabled = false;
+
+                        submitBtn.style.display = 'block';
+                    }
+
+
+                    if (loadingMsg) {
+
+                        loadingMsg.style.display = 'none';
+                    }
+
+
+                    // --------------------------------------------
+                    // SHOW ERROR MESSAGE
+                    // --------------------------------------------
+
+                    if (errorMsg) {
+
+                        errorMsg.innerHTML = `
+                            <strong>
+                                ❌ Something went wrong!
+                            </strong>
+
+                            <p>
+                                We could not send your booking request.
+                                Please try again.
+                            </p>
+
+                            <p style="
+                                font-size: 0.8rem;
+                                margin-top: 10px;
+                                color: #fca5a5;
+                            ">
+                                EmailJS Error:
+                                ${error.text || 'Unknown error'}
+                            </p>
+
+                            <p style="
+                                margin-top: 10px;
+                            ">
+                                Please contact us directly at:
+                                <br>
+                                <strong>
+                                    thomaschaseimmigration9@gmail.com
+                                </strong>
+                            </p>
+                        `;
+
+                        errorMsg.style.display = 'block';
+
+
+                        errorMsg.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'center'
+                        });
+                    }
+
+                });
+
+            }
+        );
     }
 
 
@@ -204,77 +289,134 @@ document.addEventListener('DOMContentLoaded', function () {
     // CONTACT FORM
     // ============================================================
 
-    const contactForm = document.getElementById('contactForm');
+    const contactForm =
+        document.getElementById('contactForm');
+
 
     if (contactForm) {
 
-        contactForm.addEventListener('submit', function (event) {
+        contactForm.addEventListener(
+            'submit',
+            function (event) {
 
-            event.preventDefault();
-
-            const submitBtn =
-                contactForm.querySelector('.btn-submit');
-
-            const successMsg =
-                document.getElementById('contactSuccessMsg');
-
-            const errorMsg =
-                document.getElementById('contactErrorMsg');
-
-            submitBtn.textContent = '⏳ Sending...';
-            submitBtn.disabled = true;
+                event.preventDefault();
 
 
-            emailjs.sendForm(
-                EMAILJS_SERVICE_ID,
-                EMAILJS_TEMPLATE_ID,
-                contactForm
-            )
+                const submitBtn =
+                    contactForm.querySelector('.btn-submit');
 
-            .then(function (response) {
 
-                console.log(
-                    'CONTACT SENT SUCCESSFULLY:',
-                    response.status,
-                    response.text
-                );
+                const successMsg =
+                    document.getElementById(
+                        'contactSuccessMsg'
+                    );
 
-                if (successMsg) {
-                    successMsg.style.display = 'block';
+
+                const errorMsg =
+                    document.getElementById(
+                        'contactErrorMsg'
+                    );
+
+
+                // ----------------------------------------------
+                // BUTTON LOADING
+                // ----------------------------------------------
+
+                if (submitBtn) {
+
+                    submitBtn.textContent =
+                        '⏳ Sending...';
+
+                    submitBtn.disabled = true;
                 }
 
-                if (errorMsg) {
-                    errorMsg.style.display = 'none';
-                }
 
-                contactForm.reset();
+                // ----------------------------------------------
+                // SEND CONTACT FORM
+                // ----------------------------------------------
 
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
+                emailjs.sendForm(
+                    EMAILJS_SERVICE_ID,
+                    EMAILJS_TEMPLATE_ID,
+                    contactForm
+                )
 
-            })
+                .then(function (response) {
 
-            .catch(function (error) {
+                    console.log(
+                        'CONTACT MESSAGE SENT:',
+                        response.status,
+                        response.text
+                    );
 
-                console.error(
-                    'EMAILJS CONTACT ERROR:',
-                    error
-                );
 
-                if (errorMsg) {
-                    errorMsg.style.display = 'block';
-                }
+                    if (successMsg) {
 
-                if (successMsg) {
-                    successMsg.style.display = 'none';
-                }
+                        successMsg.style.display =
+                            'block';
+                    }
 
-                submitBtn.textContent = 'Send Message';
-                submitBtn.disabled = false;
 
-            });
+                    if (errorMsg) {
 
-        });
+                        errorMsg.style.display =
+                            'none';
+                    }
+
+
+                    contactForm.reset();
+
+
+                    if (submitBtn) {
+
+                        submitBtn.textContent =
+                            'Send Message';
+
+                        submitBtn.disabled = false;
+                    }
+
+                })
+
+
+                .catch(function (error) {
+
+                    console.error(
+                        'EMAILJS CONTACT ERROR:',
+                        error
+                    );
+
+                    console.error(
+                        'CONTACT ERROR TEXT:',
+                        error.text
+                    );
+
+
+                    if (successMsg) {
+
+                        successMsg.style.display =
+                            'none';
+                    }
+
+
+                    if (errorMsg) {
+
+                        errorMsg.style.display =
+                            'block';
+                    }
+
+
+                    if (submitBtn) {
+
+                        submitBtn.textContent =
+                            'Send Message';
+
+                        submitBtn.disabled = false;
+                    }
+
+                });
+
+            }
+        );
     }
 
 });
