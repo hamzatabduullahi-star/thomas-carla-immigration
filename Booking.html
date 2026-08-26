@@ -46,68 +46,78 @@
                 <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">* Prices are subject to change with currency rates</p>
             </div>
 
-            <!-- Step 1: Calendar -->
-            <div class="form-wrapper" id="calendarWrapper">
-                <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 1: Select a Date &amp; Time</h3>
-                <div id="calendar"></div>
-            </div>
+            <!-- ===== TWO COLUMN LAYOUT: Calendar + Form ===== -->
+            <div class="booking-layout">
 
-            <!-- Step 2: Booking Form (Hidden until date is selected) -->
-            <div class="form-wrapper" id="bookingFormWrapper" style="display: none;">
-                <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 2: Your Details</h3>
-                <p style="text-align: center; color: #94a3b8; margin-bottom: 20px;" id="selectedDateTime">Selected: </p>
+                <!-- LEFT: Calendar -->
+                <div class="booking-calendar">
+                    <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 1: Select a Date &amp; Time</h3>
+                    <div id="calendar"></div>
+                    <p style="color: #94a3b8; font-size: 0.9rem; text-align: center; margin-top: 12px;">
+                        💡 Click on a date to see available times, then click a time slot to select it.
+                    </p>
+                </div>
 
-                <form id="bookingForm" action="https://formsubmit.co/thomaschaseimmigration9@gmail.com" method="POST">
-                    <!-- FormSubmit configuration -->
-                    <input type="hidden" name="_captcha" value="false" />
-                    <input type="hidden" name="_template" value="table" />
-                    <input type="hidden" name="_subject" value="New Appointment Booking Request" />
-                    <input type="hidden" name="_next" value="https://hamzatabduullahi-star.github.io/thomas-carla-immigration/booking.html?success=true" />
+                <!-- RIGHT: Booking Form (Always visible) -->
+                <div class="booking-form">
+                    <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 2: Your Details</h3>
+                    
+                    <!-- Show selected date/time -->
+                    <div id="selectedDateTime" style="text-align: center; color: #94a3b8; margin-bottom: 20px; padding: 10px; background: rgba(255,255,255,0.05); border-radius: 10px;">
+                        📌 Please select a date and time from the calendar first.
+                    </div>
 
-                    <!-- Hidden fields for date/time -->
-                    <input type="hidden" name="Selected Date" id="selectedDate" value="" />
-                    <input type="hidden" name="Selected Time" id="selectedTime" value="" />
+                    <form id="bookingForm" action="https://formsubmit.co/thomaschaseimmigration9@gmail.com" method="POST">
+                        <!-- FormSubmit configuration -->
+                        <input type="hidden" name="_captcha" value="false" />
+                        <input type="hidden" name="_template" value="table" />
+                        <input type="hidden" name="_subject" value="New Appointment Booking Request" />
+                        <input type="hidden" name="_next" value="https://hamzatabduullahi-star.github.io/thomas-carla-immigration/booking.html?success=true" />
 
-                    <div class="form-row">
+                        <!-- Hidden fields for date/time -->
+                        <input type="hidden" name="Selected Date" id="selectedDate" value="" />
+                        <input type="hidden" name="Selected Time" id="selectedTime" value="" />
+
                         <div class="form-group">
                             <label>Full Name <span class="required">*</span></label>
                             <input type="text" name="Name" placeholder="e.g. John Doe" required />
                         </div>
+
                         <div class="form-group">
                             <label>Email Address <span class="required">*</span></label>
                             <input type="email" name="Email" placeholder="you@example.com" required />
                         </div>
-                    </div>
 
-                    <div class="form-row">
                         <div class="form-group">
                             <label>Phone Number <span class="required">*</span></label>
                             <input type="tel" name="Phone" placeholder="+1 234 567 8900" required />
                         </div>
+
                         <div class="form-group">
                             <label>Address</label>
                             <input type="text" name="Address" placeholder="Street address" />
                         </div>
-                    </div>
 
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>City</label>
-                            <input type="text" name="City" placeholder="City" />
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>City</label>
+                                <input type="text" name="City" placeholder="City" />
+                            </div>
+                            <div class="form-group">
+                                <label>Zip / Postal Code</label>
+                                <input type="text" name="Zip" placeholder="Zip code" />
+                            </div>
                         </div>
+
                         <div class="form-group">
-                            <label>Zip / Postal Code</label>
-                            <input type="text" name="Zip" placeholder="Zip code" />
+                            <label>Notes / Questions</label>
+                            <textarea name="Notes" placeholder="Any specific questions or details about your situation..."></textarea>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Notes / Questions</label>
-                        <textarea name="Notes" placeholder="Any specific questions or details about your situation..."></textarea>
-                    </div>
+                        <button type="submit" class="btn-submit">📅 Book This Appointment</button>
+                    </form>
+                </div>
 
-                    <button type="submit" class="btn-submit">📅 Book This Appointment</button>
-                </form>
             </div>
 
             <!-- Success Message -->
