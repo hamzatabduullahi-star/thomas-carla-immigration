@@ -121,7 +121,6 @@ nav ul li a.active {
     margin: 0 auto 20px;
 }
 
-/* Hero Contact - Only Email */
 .hero-contact {
     background: rgba(255, 255, 255, 0.06);
     border-radius: 60px;
@@ -145,7 +144,6 @@ nav ul li a.active {
     color: #facc15;
 }
 
-/* Hero Buttons */
 .hero-buttons {
     display: flex;
     flex-wrap: wrap;
@@ -465,32 +463,19 @@ nav ul li a.active {
     text-align: center;
 }
 
-/* ===== BOOKING PAGE ===== */
+/* ===== BOOKING FORM ===== */
 .booking-section {
     margin: 20px 0;
 }
 
-/* ===== TWO COLUMN LAYOUT FOR BOOKING PAGE ===== */
-.booking-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 1100px;
-    margin: 0 auto;
-}
-
-.booking-calendar {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 20px;
-    padding: 25px 20px;
-    border: 1px solid rgba(255, 215, 0, 0.1);
-}
-
-.booking-form {
+.form-wrapper {
     background: rgba(0, 0, 0, 0.35);
-    border-radius: 20px;
-    padding: 30px 25px;
-    border: 1px solid rgba(255, 215, 0, 0.1);
+    border-radius: 28px;
+    padding: 40px 35px;
+    border: 1px solid rgba(255, 215, 0, 0.12);
+    backdrop-filter: blur(6px);
+    max-width: 850px;
+    margin: 0 auto 25px;
 }
 
 /* ===== CONSULTATION FEE SECTION ===== */
@@ -499,7 +484,7 @@ nav ul li a.active {
     border-radius: 20px;
     padding: 30px 35px;
     margin: 20px auto 30px;
-    max-width: 1100px;
+    max-width: 850px;
     border-left: 4px solid #facc15;
 }
 
@@ -532,97 +517,6 @@ nav ul li a.active {
 
 .consultation-fee ul li::before {
     content: "✅ ";
-}
-
-/* ===== CALENDAR STYLES ===== */
-#calendar {
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 16px;
-    padding: 15px;
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    color: #fff;
-}
-
-/* FullCalendar overrides */
-.fc {
-    color: #e2e8f0;
-}
-
-.fc .fc-toolbar-title {
-    color: #facc15;
-    font-size: 1.3rem !important;
-}
-
-.fc .fc-button-primary {
-    background: rgba(250, 204, 21, 0.15);
-    border: 1px solid rgba(250, 204, 21, 0.3);
-    color: #facc15;
-}
-
-.fc .fc-button-primary:hover {
-    background: rgba(250, 204, 21, 0.25);
-}
-
-.fc .fc-button-primary:not(:disabled):active,
-.fc .fc-button-primary:not(:disabled).fc-button-active {
-    background: #facc15;
-    color: #0b1a2e;
-    border-color: #facc15;
-}
-
-.fc .fc-daygrid-day {
-    background: rgba(255, 255, 255, 0.03);
-}
-
-.fc .fc-daygrid-day.fc-day-today {
-    background: rgba(250, 204, 21, 0.08);
-}
-
-.fc .fc-daygrid-day-number {
-    color: #cbd5e1;
-}
-
-.fc .fc-col-header-cell {
-    background: rgba(255, 255, 255, 0.05);
-    color: #facc15;
-    padding: 8px 0;
-}
-
-.fc .fc-timegrid-slot-label {
-    color: #94a3b8;
-}
-
-.fc .fc-timegrid-slot {
-    background: rgba(255, 255, 255, 0.02);
-}
-
-.fc .fc-timegrid-slot.fc-timegrid-slot-lane:hover {
-    background: rgba(250, 204, 21, 0.05);
-}
-
-.fc .fc-highlight {
-    background: rgba(250, 204, 21, 0.2);
-}
-
-.fc .fc-daygrid-day-frame:hover {
-    background: rgba(250, 204, 21, 0.05);
-    cursor: pointer;
-}
-
-/* ===== SELECTED DATE/TIME DISPLAY ===== */
-#selectedDateTime {
-    transition: all 0.3s ease;
-    padding: 12px 15px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    color: #94a3b8;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-#selectedDateTime strong {
-    color: #facc15;
 }
 
 /* ===== FORM ELEMENTS ===== */
@@ -803,6 +697,10 @@ footer p:last-child {
         grid-template-columns: 1fr;
     }
 
+    .form-wrapper {
+        padding: 25px 18px;
+    }
+
     .features,
     .service-grid {
         grid-template-columns: 1fr;
@@ -822,20 +720,6 @@ footer p:last-child {
 
     .consultation-fee {
         padding: 20px 18px;
-    }
-
-    /* ===== TWO COLUMN BECOMES ONE COLUMN ===== */
-    .booking-layout {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .booking-calendar {
-        order: 1;
-    }
-
-    .booking-form {
-        order: 2;
     }
 }
 
