@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thomas Carla Immigration - Home</title>
+    <title>Book Appointment - Thomas Carla Immigration</title>
     <link rel="stylesheet" href="style.css" />
+    <!-- FullCalendar CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" rel="stylesheet" />
 </head>
 <body>
 
@@ -17,89 +19,102 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="about.html">About</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="contact.html">Contact</a></li>
-                    <li><a href="booking.html" class="btn-nav">Book Now</a></li>
+                    <li><a href="booking.html" class="btn-nav active">Book Now</a></li>
                 </ul>
             </nav>
         </header>
 
-        <!-- ===== HERO SECTION ===== -->
-        <section class="hero">
-            <h2>complexity out of immigration</h2>
-            <p>The immigration process can often feel complicated and confusing. Get clarity about your visa options from an Immigration Consultant you can trust. Book your Consultation today.</p>
-            
-            <!-- Contact Info - Only Email -->
-            <div class="hero-contact">
-                <p>
-                    <span>✉️ Email: thomaschaseimmigration9@gmail.com</span>
-                </p>
+        <!-- ===== BOOKING SECTION ===== -->
+        <section class="booking-section">
+            <h2 class="section-title">📅 Schedule Your Consultation</h2>
+            <p class="section-sub">Select a date and time, then fill in your details to book.</p>
+
+            <!-- Consultation Fee Notice -->
+            <div class="consultation-fee">
+                <h3>💰 Telephone Consultation</h3>
+                <p>We offer a comprehensive telephone consultation with one of our experienced Immigration Consultants. The consultation is priced at <strong>$199</strong> excluding VAT and typically lasts one hour.</p>
+                <p>During the call, our Consultant will provide tailored advice on your immigration matters, addressing any questions or concerns you may have.</p>
+                <ul>
+                    <li>✅ One-hour consultation with an experienced Immigration Consultant</li>
+                    <li>✅ Tailored advice on your immigration matters</li>
+                    <li>✅ Written summary of the discussion</li>
+                </ul>
+                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">* Prices are subject to change with currency rates</p>
             </div>
 
-            <!-- Two CTAs -->
-            <div class="hero-buttons">
-                <a href="contact.html" class="btn-contact">📧 Contact us</a>
-                <a href="booking.html" class="btn-book">📅 Book a consultation</a>
+            <!-- Step 1: Calendar -->
+            <div class="form-wrapper" id="calendarWrapper">
+                <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 1: Select a Date &amp; Time</h3>
+                <div id="calendar"></div>
             </div>
-        </section>
 
-        <!-- ===== FEATURES ===== -->
-        <section class="features">
-            <div class="feature-card">
-                <span class="icon">01</span>
-                <h3>Personalized Attention</h3>
-                <p>Every consultation is focused on your individual situation.</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">02</span>
-                <h3>Clear Guidance</h3>
-                <p>Understand your available options and next steps.</p>
-            </div>
-            <div class="feature-card">
-                <span class="icon">03</span>
-                <h3>Easy Booking</h3>
-                <p>Select a suitable date and time for your consultation.</p>
-            </div>
-        </section>
+            <!-- Step 2: Booking Form (Hidden until date is selected) -->
+            <div class="form-wrapper" id="bookingFormWrapper" style="display: none;">
+                <h3 style="color: #facc15; text-align: center; margin-bottom: 15px;">Step 2: Your Details</h3>
+                <p style="text-align: center; color: #94a3b8; margin-bottom: 20px;" id="selectedDateTime">Selected: </p>
 
-        <!-- ===== ABOUT PREVIEW ===== -->
-        <section class="about-preview">
-            <h2 class="section-title">Guidance You Can Understand</h2>
-            <p>Immigration matters can often feel complicated and overwhelming. A professional consultation gives you an opportunity to discuss your situation and better understand the options available to you.</p>
-            <a href="about.html" class="btn-secondary">Learn More About Thomas Carla →</a>
-        </section>
+                <form id="bookingForm" action="https://formsubmit.co/thomaschaseimmigration9@gmail.com" method="POST">
+                    <!-- FormSubmit configuration -->
+                    <input type="hidden" name="_captcha" value="false" />
+                    <input type="hidden" name="_template" value="table" />
+                    <input type="hidden" name="_subject" value="New Appointment Booking Request" />
+                    <input type="hidden" name="_next" value="https://hamzatabduullahi-star.github.io/thomas-carla-immigration/booking.html?success=true" />
 
-        <!-- ===== SERVICES PREVIEW ===== -->
-        <section class="services-preview">
-            <h2 class="section-title">Immigration Consultation Services</h2>
-            <div class="service-grid">
-                <div class="service-card">
-                    <span class="icon">📋</span>
-                    <h3>Immigration Consultation</h3>
-                    <p>Discuss your immigration questions and receive guidance.</p>
-                    <a href="booking.html" class="btn-service">Book Appointment →</a>
-                </div>
-                <div class="service-card">
-                    <span class="icon">🛂</span>
-                    <h3>Visa Consultation</h3>
-                    <p>Get answers to visa-related questions and understand next steps.</p>
-                    <a href="booking.html" class="btn-service">Book Appointment →</a>
-                </div>
-                <div class="service-card">
-                    <span class="icon">⚖️</span>
-                    <h3>Case Discussion</h3>
-                    <p>Schedule a consultation to discuss your immigration situation in detail.</p>
-                    <a href="booking.html" class="btn-service">Book Appointment →</a>
-                </div>
+                    <!-- Hidden fields for date/time -->
+                    <input type="hidden" name="Selected Date" id="selectedDate" value="" />
+                    <input type="hidden" name="Selected Time" id="selectedTime" value="" />
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Full Name <span class="required">*</span></label>
+                            <input type="text" name="Name" placeholder="e.g. John Doe" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address <span class="required">*</span></label>
+                            <input type="email" name="Email" placeholder="you@example.com" required />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Phone Number <span class="required">*</span></label>
+                            <input type="tel" name="Phone" placeholder="+1 234 567 8900" required />
+                        </div>
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input type="text" name="Address" placeholder="Street address" />
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>City</label>
+                            <input type="text" name="City" placeholder="City" />
+                        </div>
+                        <div class="form-group">
+                            <label>Zip / Postal Code</label>
+                            <input type="text" name="Zip" placeholder="Zip code" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Notes / Questions</label>
+                        <textarea name="Notes" placeholder="Any specific questions or details about your situation..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">📅 Book This Appointment</button>
+                </form>
             </div>
-        </section>
 
-        <!-- ===== CTA ===== -->
-        <section class="cta">
-            <h2>Ready to Get Started?</h2>
-            <a href="booking.html" class="btn-cta">Book Appointment</a>
+            <!-- Success Message -->
+            <div id="successMsg">
+                <strong>✅ Booking Request Sent!</strong>
+                <p>We'll get back to you within 24 hours to confirm your appointment.</p>
+            </div>
         </section>
 
         <!-- ===== FOOTER ===== -->
@@ -110,6 +125,8 @@
 
     </div>
 
+    <!-- FullCalendar JS -->
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
