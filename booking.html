@@ -12,10 +12,10 @@
 </head>
 <body>
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar">
+    <!-- ===== SIMPLE NAVIGATION ===== -->
+    <nav class="navbar booking-nav">
         <div class="nav-container">
-            <a href="index.html" class="logo">Thomas Carla</a>
+            <a href="index.html" class="logo">Immigration</a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <i class="fas fa-bars"></i>
             </button>
@@ -23,8 +23,8 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-                <li><a href="booking.html" class="active">Booking</a></li>
-                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="booking.html" class="active nav-cta">Book Now</a></li>
             </ul>
         </div>
     </nav>
@@ -34,102 +34,85 @@
         <div class="container">
             <div class="booking-wrapper">
 
-                <!-- ===== CONSULTANT INFO ===== -->
-                <div class="consultant-info">
-                    <h2>Consultant</h2>
+                <!-- ===== HEADER ===== -->
+                <h1>Schedule Your Consultation</h1>
+                <p class="booking-subtitle">Fill in your details below to book your consultation.</p>
+
+                <!-- ===== CONSULTATION INFO ===== -->
+                <div class="consultation-info-box">
+                    <h2>Telephone Consultation</h2>
+                    <p>We offer a comprehensive telephone consultation with one of our experienced Immigration Consultants. The consultation is priced at <strong>$199</strong> excluding VAT and typically lasts one hour.</p>
+                    <p>During the call, our Consultant will provide tailored advice on your immigration matters, addressing any questions or concerns you may have.</p>
                     <ul>
+                        <li><i class="fas fa-check-circle"></i> One-hour consultation with an experienced Immigration Consultant</li>
                         <li><i class="fas fa-check-circle"></i> Tailored advice on your immigration matters</li>
                         <li><i class="fas fa-check-circle"></i> Written summary of the discussion</li>
                     </ul>
-                    <p class="price-note">* Prices are subject to change with currency rates</p>
+                    <p class="price-note">*Prices are subject to change with currency rates.</p>
                 </div>
 
                 <!-- ===== BOOKING FORM ===== -->
                 <div class="booking-card">
-                    <h2>Book Your Consultation</h2>
-
                     <form id="booking-form">
 
-                        <!-- Service Type -->
+                        <!-- Full Name -->
                         <div class="form-group">
-                            <label for="service-type">Service Type</label>
-                            <input type="text" id="service-type" name="service_type" value="Immigration Consultation" readonly />
+                            <label for="full-name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="full-name" name="full_name" placeholder="e.g. John Doe" required />
                         </div>
 
-                        <!-- Date & Time -->
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label for="date">Preferred Date <span class="required">*</span></label>
-                                <input type="date" id="date" name="date" required />
-                            </div>
-                            <div class="form-group half">
-                                <label for="time">Preferred Time <span class="required">*</span></label>
-                                <select id="time" name="time" required>
-                                    <option value="">Select a time</option>
-                                    <option value="09:00">09:00 AM</option>
-                                    <option value="09:30">09:30 AM</option>
-                                    <option value="10:00">10:00 AM</option>
-                                    <option value="10:30">10:30 AM</option>
-                                    <option value="11:00">11:00 AM</option>
-                                    <option value="11:30">11:30 AM</option>
-                                    <option value="12:00">12:00 PM</option>
-                                    <option value="12:30">12:30 PM</option>
-                                    <option value="13:00">01:00 PM</option>
-                                    <option value="13:30">01:30 PM</option>
-                                    <option value="14:00">02:00 PM</option>
-                                    <option value="14:30">02:30 PM</option>
-                                    <option value="15:00">03:00 PM</option>
-                                    <option value="15:30">03:30 PM</option>
-                                    <option value="16:00">04:00 PM</option>
-                                    <option value="16:30">04:30 PM</option>
-                                    <option value="17:00">05:00 PM</option>
-                                    <option value="17:30">05:30 PM</option>
-                                </select>
-                            </div>
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        </div>
+
+                        <!-- Phone -->
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" required />
+                        </div>
+
+                        <!-- Preferred Date -->
+                        <div class="form-group">
+                            <label for="date">Preferred Date <span class="required">*</span></label>
+                            <input type="date" id="date" name="date" required />
+                        </div>
+
+                        <!-- Preferred Time -->
+                        <div class="form-group">
+                            <label for="time">Preferred Time <span class="required">*</span></label>
+                            <select id="time" name="time" required>
+                                <option value="">Select a time</option>
+                                <option value="09:00">09:00 AM</option>
+                                <option value="09:30">09:30 AM</option>
+                                <option value="10:00">10:00 AM</option>
+                                <option value="10:30">10:30 AM</option>
+                                <option value="11:00">11:00 AM</option>
+                                <option value="11:30">11:30 AM</option>
+                                <option value="12:00">12:00 PM</option>
+                                <option value="12:30">12:30 PM</option>
+                                <option value="13:00">01:00 PM</option>
+                                <option value="13:30">01:30 PM</option>
+                                <option value="14:00">02:00 PM</option>
+                                <option value="14:30">02:30 PM</option>
+                                <option value="15:00">03:00 PM</option>
+                                <option value="15:30">03:30 PM</option>
+                                <option value="16:00">04:00 PM</option>
+                                <option value="16:30">04:30 PM</option>
+                                <option value="17:00">05:00 PM</option>
+                                <option value="17:30">05:30 PM</option>
+                            </select>
                         </div>
 
                         <p class="availability-note">
                             <i class="fas fa-clock"></i> Available: Monday - Friday, 9:00 AM - 6:00 PM
                         </p>
 
-                        <!-- Personal Details -->
-                        <h3 class="section-title">Your Personal Details</h3>
-
-                        <div class="form-group">
-                            <label for="full-name">Full Name <span class="required">*</span></label>
-                            <input type="text" id="full-name" name="full_name" placeholder="e.g. John Doe" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email Address <span class="required">*</span></label>
-                            <input type="email" id="email" name="email" placeholder="you@example.com" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="phone">Phone Number <span class="required">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" required />
-                        </div>
-
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <input type="text" id="address" name="address" placeholder="Street address" />
-                        </div>
-
-                        <div class="form-row">
-                            <div class="form-group half">
-                                <label for="city">City</label>
-                                <input type="text" id="city" name="city" placeholder="City" />
-                            </div>
-                            <div class="form-group half">
-                                <label for="zip">Zip / Postal Code</label>
-                                <input type="text" id="zip" name="zip" placeholder="zip code" />
-                            </div>
-                        </div>
-
                         <!-- Notes -->
                         <div class="form-group">
-                            <label for="notes">Details about your situation</label>
-                            <textarea id="notes" name="notes" rows="4" placeholder="Notes / Questions about your situation..."></textarea>
+                            <label for="notes">Notes / Questions</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Any specific questions or details about your situation..."></textarea>
                         </div>
 
                         <!-- Submit -->
