@@ -99,3 +99,34 @@
     console.log('✉️  thomaschaseimmigration9@gmail.com');
 
 })();
+// ===== CONTACT FORM =====
+    const contactForm = document.getElementById('contact-form');
+    const contactMessageDiv = document.getElementById('contact-form-message');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('contact-submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+            // ⚠️ REPLACE with your EmailJS IDs
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function() {
+                    contactMessageDiv.style.display = 'block';
+                    contactMessageDiv.className = 'form-message success';
+                    contactMessageDiv.innerHTML = '✅ Your message has been sent! We\'ll get back to you within 24 hours.';
+                    contactForm.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                }, function(error) {
+                    console.log('Contact Form Error:', error);
+                    contactMessageDiv.style.display = 'block';
+                    contactMessageDiv.className = 'form-message error';
+                    contactMessageDiv.innerHTML = '❌ Something went wrong! Please try again or contact us directly at thomaschaseimmigration9@gmail.com';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                });
+        });
+    }
