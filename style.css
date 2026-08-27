@@ -554,3 +554,240 @@ body {
         padding: 0.8rem;
     }
 }
+/* ================================================================
+   BOOKING PAGE STYLES
+   ================================================================ */
+.booking-section {
+    padding: 3rem 0 4rem;
+}
+
+.booking-wrapper {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.booking-section h1 {
+    text-align: center;
+    font-size: 2.2rem;
+    color: #0b2b4a;
+    margin-bottom: 0.5rem;
+}
+
+.booking-section h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #2b6c8f;
+    margin: 0.5rem auto 0;
+    border-radius: 50px;
+}
+
+.booking-subtitle {
+    text-align: center;
+    color: #475569;
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+/* ===== CONSULTATION INFO BOX ===== */
+.consultation-info-box {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1.8rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 8px rgba(11, 43, 74, 0.06);
+    margin-bottom: 2rem;
+}
+
+.consultation-info-box h2 {
+    font-size: 1.3rem;
+    color: #0b2b4a;
+    margin-bottom: 0.75rem;
+}
+
+.consultation-info-box p {
+    color: #475569;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.consultation-info-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+}
+
+.consultation-info-box ul li {
+    padding: 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #1e293b;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+.consultation-info-box ul li:last-child {
+    border-bottom: none;
+}
+
+.consultation-info-box ul li i {
+    color: #25a86b;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.price-note {
+    font-size: 0.85rem;
+    color: #94a3b8;
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+
+/* ===== BOOKING CARD ===== */
+.booking-card {
+    background: #ffffff;
+    padding: 2.5rem;
+    border-radius: 1.8rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 8px rgba(11, 43, 74, 0.06);
+}
+
+/* ===== FORM ELEMENTS ===== */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: #0b2b4a;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+}
+
+.form-group .required {
+    color: #c7162b;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.7rem 1rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.8rem;
+    font-size: 1rem;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    transition: border-color 0.3s ease;
+    background: #f8fafc;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2b6c8f;
+    box-shadow: 0 0 0 3px rgba(43, 108, 143, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+/* ===== AVAILABILITY NOTE ===== */
+.availability-note {
+    font-size: 0.9rem;
+    color: #475569;
+    background: #f0f4f8;
+    padding: 0.6rem 1rem;
+    border-radius: 0.8rem;
+    margin: 0 0 1.5rem;
+}
+
+.availability-note i {
+    color: #2b6c8f;
+    margin-right: 0.5rem;
+}
+
+/* ===== SUBMIT BUTTON ===== */
+.btn-submit {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 0.9rem;
+    font-size: 1.1rem;
+    margin-top: 0.5rem;
+}
+
+/* ===== CONFIRMATION NOTE ===== */
+.confirmation-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #475569;
+    margin-top: 1rem;
+}
+
+.confirmation-note i {
+    color: #25a86b;
+    margin-right: 0.5rem;
+}
+
+/* ===== FORM MESSAGE ===== */
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.form-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.form-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* ================================================================
+   RESPONSIVE - BOOKING
+   ================================================================ */
+@media (max-width: 768px) {
+    .booking-card {
+        padding: 1.5rem;
+    }
+    
+    .consultation-info-box {
+        padding: 1.5rem;
+    }
+    
+    .booking-section h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-card {
+        padding: 1rem;
+    }
+    
+    .consultation-info-box {
+        padding: 1rem;
+    }
+    
+    .booking-section h1 {
+        font-size: 1.4rem;
+    }
+    
+    .btn-submit {
+        font-size: 1rem;
+        padding: 0.8rem;
+    }
+}
