@@ -38,6 +38,23 @@
         });
     }
 
+    // ===== GET SERVICE FROM URL =====
+    function getServiceFromURL() {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get('service');
+    }
+
+    // ===== SET SERVICE TYPE IN FORM =====
+    const serviceTypeInput = document.getElementById('service-type');
+    if (serviceTypeInput) {
+        const service = getServiceFromURL();
+        if (service) {
+            serviceTypeInput.value = service;
+        } else {
+            serviceTypeInput.value = 'Immigration Consultation'; // Default
+        }
+    }
+
     // ===== EMAILJS BOOKING FORM =====
     const form = document.getElementById('booking-form');
     const messageDiv = document.getElementById('form-message');
@@ -60,6 +77,11 @@
                     messageDiv.className = 'form-message success';
                     messageDiv.innerHTML = '✅ Your consultation request has been sent! We\'ll get back to you within 24 hours.';
                     form.reset();
+                    // Reset service type to the one from URL
+                    const service = getServiceFromURL();
+                    if (serviceTypeInput) {
+                        serviceTypeInput.value = service || 'Immigration Consultation';
+                    }
                     submitBtn.disabled = false;
                     submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Book This Appointment';
                 }, function(error) {
