@@ -1,422 +1,79 @@
-// ================================================================
-// THOMAS CARLA IMMIGRATION
-// EMAILJS + BOOKING SYSTEM
-// ================================================================
+(function() {
+    'use strict';
 
+    // ===== MOBILE NAVIGATION =====
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-// ================================================================
-// EMAILJS CONFIGURATION
-// ================================================================
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('open');
+            const icon = this.querySelector('i');
+            if (icon) {
+                icon.classList.toggle('fa-bars');
+                icon.classList.toggle('fa-times');
+            }
+        });
 
-const EMAILJS_PUBLIC_KEY = 'BaMHIw9kfA9clVk2L';
-const EMAILJS_SERVICE_ID = 'service_n2vnl2h';
-const EMAILJS_TEMPLATE_ID = 'template_0qa04br';
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.navbar')) {
+                navMenu.classList.remove('open');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
+            }
+        });
 
-
-// ================================================================
-// INITIALIZE EMAILJS
-// ================================================================
-
-emailjs.init({
-    publicKey: EMAILJS_PUBLIC_KEY
-});
-
-
-// ================================================================
-// PAGE LOAD
-// ================================================================
-
-document.addEventListener('DOMContentLoaded', function () {
-
-
-    // ============================================================
-    // SET MINIMUM BOOKING DATE
-    // ============================================================
-
-    const dateInput = document.getElementById('bookingDate');
-
-    if (dateInput) {
-
-        const today = new Date();
-
-        const year = today.getFullYear();
-        const month = String(today.getMonth() + 1).padStart(2, '0');
-        const day = String(today.getDate()).padStart(2, '0');
-
-        dateInput.min = `${year}-${month}-${day}`;
-    }
-
-
-    // ============================================================
-    // AUTO-FILL SERVICE TYPE FROM URL
-    // ============================================================
-
-    const urlParams = new URLSearchParams(window.location.search);
-
-    const serviceFromUrl = urlParams.get('service');
-
-    const serviceInput = document.getElementById('serviceType');
-
-    if (serviceFromUrl && serviceInput) {
-
-        try {
-
-            serviceInput.value = decodeURIComponent(serviceFromUrl);
-
-        } catch (error) {
-
-            serviceInput.value = serviceFromUrl;
-
-        }
-
-    } else if (serviceInput) {
-
-        serviceInput.value = 'Immigration Consultation';
-
-    }
-
-
-    // ============================================================
-    // SHOW SUCCESS PAGE
-    // ============================================================
-
-    if (
-        urlParams.get('success') === 'true'
-    ) {
-
-        const formWrapper =
-            document.getElementById('formWrapper');
-
-        if (formWrapper) {
-            formWrapper.style.display = 'none';
-        }
-
-
-        const feeSection =
-            document.querySelector('.consultation-fee');
-
-        if (feeSection) {
-            feeSection.style.display = 'none';
-        }
-
-
-        const successMsg =
-            document.getElementById('successMsg');
-
-        if (successMsg) {
-
-            successMsg.style.display = 'block';
-
-            successMsg.scrollIntoView({
-                behavior: 'smooth',
-                block: 'center'
+        navMenu.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('open');
+                const icon = navToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.add('fa-bars');
+                    icon.classList.remove('fa-times');
+                }
             });
-        }
+        });
     }
 
+    // ===== EMAILJS BOOKING FORM =====
+    const form = document.getElementById('booking-form');
+    const messageDiv = document.getElementById('form-message');
 
-    // ============================================================
-    // BOOKING FORM
-    // ============================================================
+    if (form) {
+        // ⚠️ REPLACE 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
+        emailjs.init('YOUR_PUBLIC_KEY');
 
-    const bookingForm =
-        document.getElementById('bookingForm');
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
 
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
-    if (bookingForm) {
-
-        bookingForm.addEventListener(
-            'submit',
-            function (event) {
-
-                event.preventDefault();
-
-
-                // ------------------------------------------------
-                // GET BUTTONS / MESSAGES
-                // ------------------------------------------------
-
-                const submitBtn =
-                    document.getElementById('submitBtn');
-
-                const loadingMsg =
-                    document.getElementById('loadingMsg');
-
-                const errorMsg =
-                    document.getElementById('errorMsg');
-
-
-                // ------------------------------------------------
-                // HIDE PREVIOUS ERROR
-                // ------------------------------------------------
-
-                if (errorMsg) {
-                    errorMsg.style.display = 'none';
-                }
-
-
-                // ------------------------------------------------
-                // SHOW LOADING
-                // ------------------------------------------------
-
-                if (submitBtn) {
-
-                    submitBtn.disabled = true;
-
-                    submitBtn.style.display = 'none';
-                }
-
-
-                if (loadingMsg) {
-
-                    loadingMsg.style.display = 'block';
-                }
-
-
-                // ------------------------------------------------
-                // SEND FORM THROUGH EMAILJS
-                // ------------------------------------------------
-
-                emailjs.sendForm(
-                    EMAILJS_SERVICE_ID,
-                    EMAILJS_TEMPLATE_ID,
-                    bookingForm
-                )
-
-                .then(function (response) {
-
-                    console.log(
-                        'BOOKING SENT SUCCESSFULLY',
-                        response.status,
-                        response.text
-                    );
-
-
-                    // --------------------------------------------
-                    // REDIRECT TO SUCCESS MESSAGE
-                    // --------------------------------------------
-
-                    window.location.href =
-                        'booking.html?success=true';
-
-                })
-
-
-                .catch(function (error) {
-
-                    console.error(
-                        'EMAILJS BOOKING ERROR:',
-                        error
-                    );
-
-                    console.error(
-                        'EMAILJS ERROR TEXT:',
-                        error.text
-                    );
-
-
-                    // --------------------------------------------
-                    // RESTORE BUTTON
-                    // --------------------------------------------
-
-                    if (submitBtn) {
-
-                        submitBtn.disabled = false;
-
-                        submitBtn.style.display = 'block';
-                    }
-
-
-                    if (loadingMsg) {
-
-                        loadingMsg.style.display = 'none';
-                    }
-
-
-                    // --------------------------------------------
-                    // SHOW ERROR MESSAGE
-                    // --------------------------------------------
-
-                    if (errorMsg) {
-
-                        errorMsg.innerHTML = `
-                            <strong>
-                                ❌ Something went wrong!
-                            </strong>
-
-                            <p>
-                                We could not send your booking request.
-                                Please try again.
-                            </p>
-
-                            <p style="
-                                font-size: 0.8rem;
-                                margin-top: 10px;
-                                color: #fca5a5;
-                            ">
-                                EmailJS Error:
-                                ${error.text || 'Unknown error'}
-                            </p>
-
-                            <p style="
-                                margin-top: 10px;
-                            ">
-                                Please contact us directly at:
-                                <br>
-                                <strong>
-                                    thomaschaseimmigration9@gmail.com
-                                </strong>
-                            </p>
-                        `;
-
-                        errorMsg.style.display = 'block';
-
-
-                        errorMsg.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-                    }
-
+            // ⚠️ REPLACE 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+                .then(function() {
+                    messageDiv.style.display = 'block';
+                    messageDiv.className = 'form-message success';
+                    messageDiv.innerHTML = '✅ Your consultation request has been sent! We\'ll get back to you within 24 hours.';
+                    form.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Book This Appointment';
+                }, function(error) {
+                    console.log('EmailJS Error:', error);
+                    messageDiv.style.display = 'block';
+                    messageDiv.className = 'form-message error';
+                    messageDiv.innerHTML = '❌ Something went wrong! Please try again or contact us directly at thomaschaseimmigration9@gmail.com';
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Book This Appointment';
                 });
-
-            }
-        );
+        });
     }
 
+    console.log('🚀 Thomas Carla Immigration');
+    console.log('✉️  thomaschaseimmigration9@gmail.com');
 
-    // ============================================================
-    // CONTACT FORM
-    // ============================================================
-
-    const contactForm =
-        document.getElementById('contactForm');
-
-
-    if (contactForm) {
-
-        contactForm.addEventListener(
-            'submit',
-            function (event) {
-
-                event.preventDefault();
-
-
-                const submitBtn =
-                    contactForm.querySelector('.btn-submit');
-
-
-                const successMsg =
-                    document.getElementById(
-                        'contactSuccessMsg'
-                    );
-
-
-                const errorMsg =
-                    document.getElementById(
-                        'contactErrorMsg'
-                    );
-
-
-                // ----------------------------------------------
-                // BUTTON LOADING
-                // ----------------------------------------------
-
-                if (submitBtn) {
-
-                    submitBtn.textContent =
-                        '⏳ Sending...';
-
-                    submitBtn.disabled = true;
-                }
-
-
-                // ----------------------------------------------
-                // SEND CONTACT FORM
-                // ----------------------------------------------
-
-                emailjs.sendForm(
-                    EMAILJS_SERVICE_ID,
-                    EMAILJS_TEMPLATE_ID,
-                    contactForm
-                )
-
-                .then(function (response) {
-
-                    console.log(
-                        'CONTACT MESSAGE SENT:',
-                        response.status,
-                        response.text
-                    );
-
-
-                    if (successMsg) {
-
-                        successMsg.style.display =
-                            'block';
-                    }
-
-
-                    if (errorMsg) {
-
-                        errorMsg.style.display =
-                            'none';
-                    }
-
-
-                    contactForm.reset();
-
-
-                    if (submitBtn) {
-
-                        submitBtn.textContent =
-                            'Send Message';
-
-                        submitBtn.disabled = false;
-                    }
-
-                })
-
-
-                .catch(function (error) {
-
-                    console.error(
-                        'EMAILJS CONTACT ERROR:',
-                        error
-                    );
-
-                    console.error(
-                        'CONTACT ERROR TEXT:',
-                        error.text
-                    );
-
-
-                    if (successMsg) {
-
-                        successMsg.style.display =
-                            'none';
-                    }
-
-
-                    if (errorMsg) {
-
-                        errorMsg.style.display =
-                            'block';
-                    }
-
-
-                    if (submitBtn) {
-
-                        submitBtn.textContent =
-                            'Send Message';
-
-                        submitBtn.disabled = false;
-                    }
-
-                });
-
-            }
-        );
-    }
-
-});
+})();
