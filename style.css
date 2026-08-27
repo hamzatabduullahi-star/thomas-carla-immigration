@@ -872,4 +872,121 @@ body {
     margin-top: 0.5rem;
     font-style: italic;
 }
+/* ================================================================
+   ABOUT PAGE
+   ================================================================ */
+.about-page {
+    padding: 3rem 0 4rem;
+}
+
+.about-wrapper {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 2.5rem 3rem;
+    border-radius: 1.8rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 8px rgba(11, 43, 74, 0.06);
+}
+
+.about-wrapper h1 {
+    font-size: 2.2rem;
+    color: #0b2b4a;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+}
+
+.about-wrapper h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #2b6c8f;
+    margin: 0.5rem auto 0;
+    border-radius: 50px;
+}
+
+.about-content p {
+    font-size: 1.05rem;
+    color: #1e293b;
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+    font-weight: 400;
+}
+
+.about-content p:last-of-type {
+    margin-bottom: 0;
+}
+
+/* ===== ABOUT FEATURES ===== */
+.about-features {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem 2rem;
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: #1e293b;
+    padding: 0.4rem 0;
+    font-weight: 500;
+}
+
+.feature-item i {
+    color: #25a86b;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+/* ===== ABOUT CTA ===== */
+.about-cta {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.about-cta .btn-primary {
+    font-size: 1.1rem;
+    padding: 0.8rem 2.5rem;
+}
+
+/* ================================================================
+   RESPONSIVE - ABOUT
+   ================================================================ */
+@media (max-width: 768px) {
+    .about-wrapper {
+        padding: 1.8rem 1.5rem;
+    }
+    
+    .about-wrapper h1 {
+        font-size: 1.8rem;
+    }
+    
+    .about-content p {
+        font-size: 1rem;
+    }
+    
+    .about-features {
+        grid-template-columns: 1fr;
+        gap: 0.3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-wrapper {
+        padding: 1.2rem 1rem;
+    }
+    
+    .about-wrapper h1 {
+        font-size: 1.4rem;
+    }
+    
+    .feature-item {
+        font-size: 0.95rem;
+    }
+}
 
