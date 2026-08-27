@@ -3,169 +3,161 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Book Appointment - Thomas Carla Immigration</title>
+    <title>Book a Consultation - Thomas Carla Immigration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
-    <!-- EmailJS SDK -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
 </head>
 <body>
 
-    <div class="container">
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Thomas Carla</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="contact.html" class="nav-cta">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-        <!-- ===== HEADER / NAV ===== -->
-        <header>
-            <div class="logo">
-                <h1>Thomas Carla Immigration</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="booking.html" class="btn-nav active">Book Now</a></li>
-                </ul>
-            </nav>
-        </header>
+    <!-- ===== BOOKING SECTION ===== -->
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-wrapper">
 
-        <!-- ===== BOOKING SECTION ===== -->
-        <section class="booking-section">
-            <h2 class="section-title">📅 Schedule Your Consultation</h2>
-            <p class="section-sub">Fill in your details below to book your consultation.</p>
+                <!-- ===== CONSULTANT INFO ===== -->
+                <div class="consultant-info">
+                    <h2>Consultant</h2>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Tailored advice on your immigration matters</li>
+                        <li><i class="fas fa-check-circle"></i> Written summary of the discussion</li>
+                    </ul>
+                    <p class="price-note">* Prices are subject to change with currency rates</p>
+                </div>
 
-            <!-- Consultation Fee Notice -->
-            <div class="consultation-fee">
-                <h3>💰 Telephone Consultation</h3>
-                <p>We offer a comprehensive telephone consultation with one of our experienced Immigration Consultants. The consultation is priced at <strong>$199</strong> excluding VAT and typically lasts one hour.</p>
-                <p>During the call, our Consultant will provide tailored advice on your immigration matters, addressing any questions or concerns you may have.</p>
-                <ul>
-                    <li>✅ One-hour consultation with an experienced Immigration Consultant</li>
-                    <li>✅ Tailored advice on your immigration matters</li>
-                    <li>✅ Written summary of the discussion</li>
-                </ul>
-                <p style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">* Prices are subject to change with currency rates</p>
-            </div>
+                <!-- ===== BOOKING FORM ===== -->
+                <div class="booking-card">
+                    <h2>Book Your Consultation</h2>
 
-            <!-- ===== BOOKING FORM ===== -->
-            <div class="form-wrapper" id="formWrapper">
-                <h3 style="color: #facc15; text-align: center; margin-bottom: 20px;">Book Your Consultation</h3>
+                    <form id="booking-form">
 
-                <form id="bookingForm">
-                    <!-- ===== SERVICE TYPE (Auto-filled from URL) ===== -->
-                    <div style="background: rgba(255, 215, 0, 0.08); padding: 15px 20px; border-radius: 12px; margin-bottom: 25px; border: 1px solid rgba(255, 215, 0, 0.15);">
-                        <label style="color: #e2e8f0; font-weight: 500; display: block; margin-bottom: 5px;">
-                            📌 Service Type <span class="required">*</span>
-                        </label>
-                        <input type="text" name="service_type" id="serviceType" readonly 
-                               style="width:100%; padding:12px 16px; border-radius:10px; border:1px solid rgba(255,215,0,0.2); background:rgba(255,255,255,0.05); color:#facc15; font-weight:600; cursor:default;" />
-                    </div>
+                        <!-- Service Type -->
+                        <div class="form-group">
+                            <label for="service-type">Service Type</label>
+                            <input type="text" id="service-type" name="service_type" value="Immigration Consultation" readonly />
+                        </div>
 
-                    <!-- ===== DATE & TIME SELECTION ===== -->
-                    <div style="background: rgba(255, 215, 0, 0.05); padding: 20px; border-radius: 16px; margin-bottom: 25px; border: 1px solid rgba(255, 215, 0, 0.1);">
-                        <h4 style="color: #facc15; margin-bottom: 15px; text-align: center;">📌 Select Your Preferred Date & Time</h4>
-                        
+                        <!-- Date & Time -->
                         <div class="form-row">
-                            <div class="form-group">
-                                <label>Preferred Date <span class="required">*</span></label>
-                                <input type="date" name="selected_date" id="bookingDate" required />
+                            <div class="form-group half">
+                                <label for="date">Preferred Date <span class="required">*</span></label>
+                                <input type="date" id="date" name="date" required />
                             </div>
-                            <div class="form-group">
-                                <label>Preferred Time <span class="required">*</span></label>
-                                <select name="selected_time" required>
+                            <div class="form-group half">
+                                <label for="time">Preferred Time <span class="required">*</span></label>
+                                <select id="time" name="time" required>
                                     <option value="">Select a time</option>
-                                    <option value="09:00 AM">09:00 AM</option>
-                                    <option value="10:00 AM">10:00 AM</option>
-                                    <option value="11:00 AM">11:00 AM</option>
-                                    <option value="12:00 PM">12:00 PM</option>
-                                    <option value="01:00 PM">01:00 PM</option>
-                                    <option value="02:00 PM">02:00 PM</option>
-                                    <option value="03:00 PM">03:00 PM</option>
-                                    <option value="04:00 PM">04:00 PM</option>
-                                    <option value="05:00 PM">05:00 PM</option>
+                                    <option value="09:00">09:00 AM</option>
+                                    <option value="09:30">09:30 AM</option>
+                                    <option value="10:00">10:00 AM</option>
+                                    <option value="10:30">10:30 AM</option>
+                                    <option value="11:00">11:00 AM</option>
+                                    <option value="11:30">11:30 AM</option>
+                                    <option value="12:00">12:00 PM</option>
+                                    <option value="12:30">12:30 PM</option>
+                                    <option value="13:00">01:00 PM</option>
+                                    <option value="13:30">01:30 PM</option>
+                                    <option value="14:00">02:00 PM</option>
+                                    <option value="14:30">02:30 PM</option>
+                                    <option value="15:00">03:00 PM</option>
+                                    <option value="15:30">03:30 PM</option>
+                                    <option value="16:00">04:00 PM</option>
+                                    <option value="16:30">04:30 PM</option>
+                                    <option value="17:00">05:00 PM</option>
+                                    <option value="17:30">05:30 PM</option>
                                 </select>
                             </div>
                         </div>
 
-                        <div style="text-align: center; color: #94a3b8; font-size: 0.85rem; margin-top: 10px;">
-                            📌 Available: Monday - Friday, 9:00 AM - 6:00 PM
-                        </div>
-                    </div>
+                        <p class="availability-note">
+                            <i class="fas fa-clock"></i> Available: Monday - Friday, 9:00 AM - 6:00 PM
+                        </p>
 
-                    <!-- ===== PERSONAL DETAILS ===== -->
-                    <div style="background: rgba(255, 255, 255, 0.03); padding: 20px; border-radius: 16px; margin-bottom: 20px; border: 1px solid rgba(255, 255, 255, 0.05);">
-                        <h4 style="color: #facc15; margin-bottom: 15px; text-align: center;">👤 Your Personal Details</h4>
+                        <!-- Personal Details -->
+                        <h3 class="section-title">Your Personal Details</h3>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Full Name <span class="required">*</span></label>
-                                <input type="text" name="name" placeholder="e.g. John Doe" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Email Address <span class="required">*</span></label>
-                                <input type="email" name="email" placeholder="you@example.com" required />
-                            </div>
+                        <div class="form-group">
+                            <label for="full-name">Full Name <span class="required">*</span></label>
+                            <input type="text" id="full-name" name="full_name" placeholder="e.g. John Doe" required />
                         </div>
 
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label>Phone Number <span class="required">*</span></label>
-                                <input type="tel" name="phone" placeholder="+1 234 567 8900" required />
-                            </div>
-                            <div class="form-group">
-                                <label>Address</label>
-                                <input type="text" name="address" placeholder="Street address" />
-                            </div>
+                        <div class="form-group">
+                            <label for="email">Email Address <span class="required">*</span></label>
+                            <input type="email" id="email" name="email" placeholder="you@example.com" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" placeholder="+1 234 567 8900" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <input type="text" id="address" name="address" placeholder="Street address" />
                         </div>
 
                         <div class="form-row">
-                            <div class="form-group">
-                                <label>City</label>
-                                <input type="text" name="city" placeholder="City" />
+                            <div class="form-group half">
+                                <label for="city">City</label>
+                                <input type="text" id="city" name="city" placeholder="City" />
                             </div>
-                            <div class="form-group">
-                                <label>Zip / Postal Code</label>
-                                <input type="text" name="zip" placeholder="Zip code" />
+                            <div class="form-group half">
+                                <label for="zip">Zip / Postal Code</label>
+                                <input type="text" id="zip" name="zip" placeholder="zip code" />
                             </div>
                         </div>
-                    </div>
 
-                    <div class="form-group">
-                        <label>Notes / Questions</label>
-                        <textarea name="notes" placeholder="Any specific questions or details about your situation..."></textarea>
-                    </div>
+                        <!-- Notes -->
+                        <div class="form-group">
+                            <label for="notes">Details about your situation</label>
+                            <textarea id="notes" name="notes" rows="4" placeholder="Notes / Questions about your situation..."></textarea>
+                        </div>
 
-                    <button type="submit" class="btn-submit" id="submitBtn">📅 Book This Appointment</button>
-                    <div id="loadingMsg" style="display:none; text-align:center; color:#facc15; margin-top:10px;">
-                        ⏳ Sending your booking request...
-                    </div>
-                </form>
+                        <!-- Submit -->
+                        <button type="submit" class="btn btn-primary btn-submit" id="submit-btn">
+                            <i class="fas fa-calendar-check"></i> Book This Appointment
+                        </button>
+
+                        <p class="confirmation-note">
+                            <i class="fas fa-check-circle"></i> We'll get back to you within 24 hours to confirm
+                        </p>
+
+                        <div id="form-message" class="form-message" style="display: none;"></div>
+                    </form>
+                </div>
+
             </div>
+        </div>
+    </section>
 
-            <!-- Success Message -->
-            <div id="successMsg">
-                <strong>✅ Booking Request Sent!</strong>
-                <p>We'll get back to you within 24 hours to confirm your appointment.</p>
-                <p style="margin-top: 10px; color: #94a3b8; font-size: 0.9rem;">
-                    <a href="index.html" style="color: #facc15;">← Return to Home</a>
-                </p>
-            </div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Thomas Carla Immigration. All rights reserved.</p>
+        </div>
+    </footer>
 
-            <!-- Error Message -->
-            <div id="errorMsg" style="display:none; text-align:center; background:rgba(239,68,68,0.15); border:1px solid #ef4444; border-radius:16px; padding:30px 20px; margin-top:25px; color:#fca5a5;">
-                <strong>❌ Something went wrong!</strong>
-                <p>Please try again or contact us directly at thomaschaseimmigration9@gmail.com</p>
-            </div>
-        </section>
-
-        <!-- ===== FOOTER ===== -->
-        <footer>
-            <p>© 2026 Thomas Carla Immigration Consultation.</p>
-            <p>All consultations are confidential.</p>
-        </footer>
-
-    </div>
-
+    <!-- ===== EMAILJS SDK ===== -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
