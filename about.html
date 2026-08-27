@@ -4,64 +4,78 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About - Thomas Carla Immigration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="container">
-
-        <!-- ===== HEADER / NAV ===== -->
-        <header>
-            <div class="logo">
-                <h1>Thomas Carla Immigration</h1>
+    <!-- ===== SIMPLE HEADER (No Navigation) ===== -->
+    <header class="page-header-simple">
+        <div class="container">
+            <div class="simple-logo">
+                <span class="logo-main">Thomas Carla</span>
+                <span class="logo-sub">Immigration</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="booking.html" class="btn-nav">Book Now</a></li>
-                </ul>
-            </nav>
-        </header>
+        </div>
+    </header>
 
-        <!-- ===== ABOUT CONTENT ===== -->
-        <section class="about-section">
-            <h2 class="section-title">About Thomas Carla</h2>
-            <div class="about-content">
-                <p>Thomas Carla is a dedicated immigration consultant with years of experience helping individuals and families navigate the complexities of immigration law.</p>
-                <p>Our mission is to provide clear, honest, and personalized guidance to everyone seeking to understand their immigration options.</p>
-                <p>We believe that every case is unique, and we take the time to understand your specific situation before offering any advice.</p>
-                <div class="about-highlights">
-                    <div class="highlight-item">
-                        <span>✔</span>
-                        <p>Over 10 years of experience</p>
+    <!-- ===== ABOUT SECTION ===== -->
+    <section class="about-page">
+        <div class="container">
+            <div class="about-wrapper">
+
+                <h1>About Thomas Carla</h1>
+
+                <div class="about-content">
+                    <p>
+                        Thomas Carla is a dedicated immigration consultant with years of experience helping individuals and families navigate the complexities of immigration law.
+                    </p>
+                    <p>
+                        Our mission is to provide clear, honest, and personalized guidance to everyone seeking to understand their immigration options.
+                    </p>
+                    <p>
+                        We believe that every case is unique, and we take the time to understand your specific situation before offering any advice.
+                    </p>
+                </div>
+
+                <!-- ===== FEATURES LIST ===== -->
+                <div class="about-features">
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Over 10 years of experience</span>
                     </div>
-                    <div class="highlight-item">
-                        <span>✔</span>
-                        <p>Personalized consultation approach</p>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Personalized consultation approach</span>
                     </div>
-                    <div class="highlight-item">
-                        <span>✔</span>
-                        <p>Confidential and professional service</p>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Confidential and professional service</span>
                     </div>
-                    <div class="highlight-item">
-                        <span>✔</span>
-                        <p>Clear guidance you can understand</p>
+                    <div class="feature-item">
+                        <i class="fas fa-check-circle"></i>
+                        <span>Clear guidance you can understand</span>
                     </div>
                 </div>
-                <a href="booking.html" class="btn-hero" style="margin-top:20px; display:inline-block;">Book a Consultation →</a>
+
+                <!-- ===== CTA BUTTON ===== -->
+                <div class="about-cta">
+                    <a href="booking.html" class="btn btn-primary">Book a Consultation →</a>
+                </div>
+
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- ===== FOOTER ===== -->
-        <footer>
-            <p>© 2026 Thomas Carla Immigration Consultation.</p>
-            <p>All consultations are confidential.</p>
-        </footer>
-
-    </div>
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Thomas Carla Immigration Consultation. All consultations are confidential.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
