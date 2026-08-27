@@ -4,189 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services - Thomas Carla Immigration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="container">
-
-        <!-- ===== HEADER / NAV ===== -->
-        <header>
-            <div class="logo">
-                <h1>Thomas Carla Immigration</h1>
+    <!-- ===== SIMPLE HEADER (No Navigation) ===== -->
+    <header class="page-header-simple">
+        <div class="container">
+            <div class="simple-logo">
+                <span class="logo-main">Thomas Carla</span>
+                <span class="logo-sub">Immigration</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="services.html" class="active">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="booking.html" class="btn-nav">Book Now</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <!-- ===== SERVICES HEADER ===== -->
-        <section class="services-header">
-            <h2 class="section-title">Our Immigration Consultation Services</h2>
-            <p class="section-sub">Select the type of consultation that best matches your needs.</p>
-        </section>
-
-        <!-- ===== SERVICE CARDS WITH IMAGES ===== -->
-        <div class="services-grid-full">
-
-            <!-- Service 1: Immigration Consultation -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="http://i.imgur.com/u0Od2us.jpeg" alt="Immigration Consultation" />
-                </div>
-                <div class="service-content">
-                    <h3>📋 Immigration Consultation</h3>
-                    <p>Discuss your immigration questions and receive guidance based on the information you provide. Get clarity on your pathway to residency or citizenship.</p>
-                    <ul>
-                        <li>✅ Eligibility assessment</li>
-                        <li>✅ Document review</li>
-                        <li>✅ Application strategy</li>
-                    </ul>
-                    <a href="booking.html?service=Immigration%20Consultation" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 2: Student Visas -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="http://i.imgur.com/C5YpO58.jpeg" alt="Student Visas" />
-                </div>
-                <div class="service-content">
-                    <h3>🎓 Student Visas</h3>
-                    <p>Navigate the student visa application process with confidence. Get expert advice on study permits and post-study work options.</p>
-                    <ul>
-                        <li>✅ Study permit applications</li>
-                        <li>✅ Post-study work visas</li>
-                        <li>✅ Education planning</li>
-                    </ul>
-                    <a href="booking.html?service=Student%20Visas" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 3: Family Immigration -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="http://i.imgur.com/8syRZLq.jpeg" alt="Family Immigration" />
-                </div>
-                <div class="service-content">
-                    <h3>👨‍👩‍👧‍👦 Family Immigration</h3>
-                    <p>Expert guidance on family-based immigration, including spouse visas, dependent visas, and family reunification.</p>
-                    <ul>
-                        <li>✅ Spouse/Partner visas</li>
-                        <li>✅ Dependent visas</li>
-                        <li>✅ Family reunification</li>
-                    </ul>
-                    <a href="booking.html?service=Family%20Immigration" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 4: Case Discussion -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="http://i.imgur.com/Y3DU8bI.jpeg" alt="Case Discussion" />
-                </div>
-                <div class="service-content">
-                    <h3>⚖️ Case Discussion</h3>
-                    <p>Schedule a consultation to discuss the details of your immigration situation in depth and explore all available options.</p>
-                    <ul>
-                        <li>✅ Complex case analysis</li>
-                        <li>✅ Risk assessment</li>
-                        <li>✅ Detailed action plan</li>
-                    </ul>
-                    <a href="booking.html?service=Case%20Discussion" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 5: Visa Consultation -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3174/3174885.png" alt="Visa Consultation" />
-                </div>
-                <div class="service-content">
-                    <h3>🛂 Visa Consultation</h3>
-                    <p>Get an opportunity to discuss visa-related questions and understand possible next steps for your specific situation.</p>
-                    <ul>
-                        <li>✅ Visa type selection</li>
-                        <li>✅ Application guidance</li>
-                        <li>✅ Interview preparation</li>
-                    </ul>
-                    <a href="booking.html?service=Visa%20Consultation" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 6: Work & Business Visas -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/3406/3406486.png" alt="Work & Business Visas" />
-                </div>
-                <div class="service-content">
-                    <h3>💼 Work & Business Visas</h3>
-                    <p>Comprehensive support for work permits, business visas, and corporate immigration solutions for employers and employees.</p>
-                    <ul>
-                        <li>✅ Work permit applications</li>
-                        <li>✅ Business visa guidance</li>
-                        <li>✅ Corporate sponsorship</li>
-                    </ul>
-                    <a href="booking.html?service=Work%20%26%20Business%20Visas" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 7: Citizenship & Naturalization -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/2521/2521805.png" alt="Citizenship" />
-                </div>
-                <div class="service-content">
-                    <h3>🏛️ Citizenship & Naturalization</h3>
-                    <p>Guidance on the path to citizenship, including naturalization applications, interviews, and oath ceremonies.</p>
-                    <ul>
-                        <li>✅ Naturalization applications</li>
-                        <li>✅ Interview preparation</li>
-                        <li>✅ Oath ceremony guidance</li>
-                    </ul>
-                    <a href="booking.html?service=Citizenship%20%26%20Naturalization" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
-            <!-- Service 8: Appeal & Review -->
-            <div class="service-card-full">
-                <div class="service-image">
-                    <img src="https://cdn-icons-png.flaticon.com/512/1989/1989991.png" alt="Appeal & Review" />
-                </div>
-                <div class="service-content">
-                    <h3>📄 Appeal & Review</h3>
-                    <p>Expert assistance with immigration appeals, administrative reviews, and challenging unfavourable decisions.</p>
-                    <ul>
-                        <li>✅ Appeal preparation</li>
-                        <li>✅ Administrative review</li>
-                        <li>✅ Legal representation guidance</li>
-                    </ul>
-                    <a href="booking.html?service=Appeal%20%26%20Review" class="btn-service">Book Appointment →</a>
-                </div>
-            </div>
-
         </div>
+    </header>
 
-        <!-- ===== CTA SECTION ===== -->
-        <section class="cta">
-            <h2>Ready to Get Started?</h2>
-            <p style="color: #cbd5e1; max-width: 600px; margin: 0 auto 20px;">Choose your service and book a consultation today. We're here to help!</p>
-            <a href="booking.html" class="btn-cta">📅 Book a Consultation</a>
-        </section>
+    <!-- ===== SERVICES SECTION ===== -->
+    <section class="services-page">
+        <div class="container">
+            <h1>Our Immigration Consultation Services</h1>
+            <p class="services-subtitle">Select the type of consultation that best matches your needs.</p>
 
-        <!-- ===== FOOTER ===== -->
-        <footer>
-            <p>© 2026 Thomas Carla Immigration Consultation.</p>
-            <p>All consultations are confidential.</p>
-        </footer>
+            <div class="services-grid">
 
-    </div>
+                <!-- ===== SERVICE 1: Immigration Consultation ===== -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="http://i.imgur.com/8geKUJm.jpeg" alt="Immigration Consultation" />
+                    </div>
+                    <h3>Immigration Consultation</h3>
+                    <p>Discuss your immigration questions and receive guidance based on the information you provide.</p>
+                    <a href="booking.html" class="btn btn-book">Book Appointment →</a>
+                </div>
+
+                <!-- ===== SERVICE 2: Visa Consultation ===== -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="http://i.imgur.com/Uo52JD0.jpeg" alt="Visa Consultation" />
+                    </div>
+                    <h3>Visa Consultation</h3>
+                    <p>Get an opportunity to discuss visa-related questions and understand possible next steps.</p>
+                    <a href="booking.html" class="btn btn-book">Book Appointment →</a>
+                </div>
+
+                <!-- ===== SERVICE 3: Work & Business Visa ===== -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="http://i.imgur.com/Uo52JD0.jpeg" alt="Work & Business Visa" />
+                    </div>
+                    <h3>Work & Business Visa</h3>
+                    <p>Get expert guidance on work permits, business visas, and corporate immigration solutions.</p>
+                    <a href="booking.html" class="btn btn-book">Book Appointment →</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Thomas Carla Immigration. All rights reserved.</p>
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
