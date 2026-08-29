@@ -1,132 +1,97 @@
-(function() {
-    'use strict';
+// ===== EMAILJS CONFIGURATION =====
+const EMAILJS_PUBLIC_KEY = 'BaMHIw9kfA9clVk2L';
+const EMAILJS_SERVICE_ID = 'service_n2vnl2h';
+const EMAILJS_TEMPLATE_ID = 'template_wt6u974';
 
-    // ===== MOBILE NAVIGATION =====
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+// Initialize EmailJS
+emailjs.init(EMAILJS_PUBLIC_KEY);
 
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('open');
-            const icon = this.querySelector('i');
-            if (icon) {
-                icon.classList.toggle('fa-bars');
-                icon.classList.toggle('fa-times');
-            }
-        });
-
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.navbar')) {
-                navMenu.classList.remove('open');
-                const icon = navToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
-            }
-        });
-
-        navMenu.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-                navMenu.classList.remove('open');
-                const icon = navToggle.querySelector('i');
-                if (icon) {
-                    icon.classList.add('fa-bars');
-                    icon.classList.remove('fa-times');
-                }
-            });
-        });
+// ===== SET MINIMUM DATE FOR DATE PICKER =====
+document.addEventListener('DOMContentLoaded', function() {
+    var dateInput = document.getElementById('bookingDate');
+    if (dateInput) {
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = String(today.getMonth() + 1).padStart(2, '0');
+        var day = String(today.getDate()).padStart(2, '0');
+        dateInput.min = year + '-' + month + '-' + day;
     }
 
-    // ===== GET SERVICE FROM URL =====
-    function getServiceFromURL() {
-        const urlParams = new URLSearchParams(window.location.search);
-        return urlParams.get('service');
+    // ===== AUTO-FILL SERVICE FROM URL =====
+    const urlParams = new URLSearchParams(window.location.search);
+    const serviceFromUrl = urlParams.get('service');
+    const serviceInput = document.getElementById('serviceType');
+    
+    if (serviceFromUrl && serviceInput) {
+        const decodedService = decodeURIComponent(serviceFromUrl);
+        serviceInput.value = decodedService;
+    } else if (serviceInput) {
+        serviceInput.value = 'Not selected';
+        serviceInput.style.color = '#94a3b8';
     }
 
-    // ===== SET SERVICE TYPE IN FORM =====
-    const serviceTypeInput = document.getElementById('service-type');
-    if (serviceTypeInput) {
-        const service = getServiceFromURL();
-        if (service) {
-            serviceTypeInput.value = service;
-        } else {
-            serviceTypeInput.value = 'Immigration Consultation'; // Default
+    // ===== CHECK FOR SUCCESS MESSAGE =====
+    if (urlParams.has('success') && urlParams.get('success') === 'true') {
+        const formWrapper = document.getElementById('formWrapper');
+        if (formWrapper) formWrapper.style.display = 'none';
+        
+        var feeSection = document.querySelector('.consultation-fee');
+        if (feeSection) feeSection.style.display = 'none';
+        
+        const successMsg = document.getElementById('successMsg');
+        if (successMsg) {
+            successMsg.style.display = 'block';
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
     }
 
-    // ===== EMAILJS BOOKING FORM =====
-    const form = document.getElementById('booking-form');
-    const messageDiv = document.getElementById('form-message');
+    // ===== BOOKING FORM SUBMISSION =====
+    const bookingForm = document.getElementById('bookingForm');
+    if (bookingForm) {
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const loadingMsg = document.getElementById('loadingMsg');
+            const errorMsg = document.getElementById('errorMsg');
+            
+            submitBtn.style.display = 'none';
+            loadingMsg.style.display = 'block';
+            errorMsg.style.display = 'none';
+            
+            // Get selected payment method
+            const selectedPayment = document.querySelector('input[name="payment_method"]:checked');
+            const paymentMethod = selectedPayment ? selectedPayment.value : 'Not selected';
+            
+            // Collect form data
+            const formData = {
+                service_type: document.getElementById('serviceType').value,
+                selected_date: document.querySelector('input[name="selected_date"]').value,
+                selected_time: document.querySelector('select[name="selected_time"]').value,
+                payment_method: paymentMethod,
+                name: document.querySelector('input[name="name"]').value,
+                email: document.querySelector('input[name="email"]').value,
+                phone: document.querySelector('input[name="phone"]').value,
+                address: document.querySelector('input[name="address"]').value,
+                city: document.querySelector('input[name="city"]').value,
+                zip: document.querySelector('input[name="zip"]').value,
+                notes: document.querySelector('textarea[name="notes"]').value
+            };
 
-    if (form) {
-        // ⚠️ REPLACE 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
-        emailjs.init('YOUR_PUBLIC_KEY');
-
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-            // ⚠️ REPLACE 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual IDs
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                .then(function() {
-                    messageDiv.style.display = 'block';
-                    messageDiv.className = 'form-message success';
-                    messageDiv.innerHTML = '✅ Your consultation request has been sent! We\'ll get back to you within 24 hours.';
-                    form.reset();
-                    // Reset service type to the one from URL
-                    const service = getServiceFromURL();
-                    if (serviceTypeInput) {
-                        serviceTypeInput.value = service || 'Immigration Consultation';
-                    }
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Book This Appointment';
-                }, function(error) {
-                    console.log('EmailJS Error:', error);
-                    messageDiv.style.display = 'block';
-                    messageDiv.className = 'form-message error';
-                    messageDiv.innerHTML = '❌ Something went wrong! Please try again or contact us directly at thomaschaseimmigration9@gmail.com';
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-calendar-check"></i> Book This Appointment';
+            console.log('Sending:', formData);
+            
+            // Send email
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formData)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status);
+                    window.location.href = 'booking.html?success=true';
+                })
+                .catch(function(error) {
+                    console.log('FAILED:', error);
+                    errorMsg.style.display = 'block';
+                    loadingMsg.style.display = 'none';
+                    submitBtn.style.display = 'block';
                 });
         });
     }
-
-    console.log('🚀 Thomas Carla Immigration');
-    console.log('✉️  thomaschaseimmigration9@gmail.com');
-
-})();
-// ===== CONTACT FORM =====
-    const contactForm = document.getElementById('contact-form');
-    const contactMessageDiv = document.getElementById('contact-form-message');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const submitBtn = document.getElementById('contact-submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-            // ⚠️ REPLACE with your EmailJS IDs
-            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-                .then(function() {
-                    contactMessageDiv.style.display = 'block';
-                    contactMessageDiv.className = 'form-message success';
-                    contactMessageDiv.innerHTML = '✅ Your message has been sent! We\'ll get back to you within 24 hours.';
-                    contactForm.reset();
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                }, function(error) {
-                    console.log('Contact Form Error:', error);
-                    contactMessageDiv.style.display = 'block';
-                    contactMessageDiv.className = 'form-message error';
-                    contactMessageDiv.innerHTML = '❌ Something went wrong! Please try again or contact us directly at thomaschaseimmigration9@gmail.com';
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
-                });
-        });
-    }
+});
