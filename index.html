@@ -3,66 +3,110 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thomas Carla Immigration</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Thomas Carla Immigration - Home</title>
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">Thomas Carla</a>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                <i class="fas fa-bars"></i>
-            </button>
-            <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="booking.html">Booking</a></li>
-                <li><a href="contact.html" class="nav-cta">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div class="container">
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="container">
-            <h1>Thomas Carla Immigration</h1>
-            <p class="subtitle">Complexity out of immigration</p>
-            <p class="description">The immigration process can often feel complicated and confusing. Get clarity about your visa options from an Immigration Consultant you can trust. Book your Consultation today.</p>
-            
-            <!-- ✅ ONLY CHANGE: href="#" → href="booking.html" -->
-            <a href="booking.html" class="btn btn-primary">Book Your Consultation Today</a>
-            
-            <div class="email-link">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:thomaschaseimmigration9@gmail.com">thomaschaseimmigration9@gmail.com</a>
+        <!-- ===== HEADER / NAV ===== -->
+        <header>
+            <div class="logo">
+                <h1>Thomas Carla Immigration</h1>
             </div>
-        </div>
-    </section>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="booking.html" class="btn-nav">Book Now</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <!-- ===== FEATURES ===== -->
-    <section class="features">
-        <div class="container">
-            <div class="feature">
-                <span class="feature-number">01</span>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero">
+            <h2>complexity out of immigration</h2>
+            <p>The immigration process can often feel complicated and confusing. Get clarity about your visa options from an Immigration Consultant you can trust. Book your Consultation today.</p>
+            
+            <div class="hero-contact">
+                <p>
+                    <span>✉️ Email: thomaschaseimmigration9@gmail.com</span>
+                </p>
+            </div>
+
+            <div class="hero-buttons">
+                <a href="contact.html" class="btn-contact">📧 Contact us</a>
+                <a href="booking.html" class="btn-book">📅 Book a consultation</a>
+            </div>
+        </section>
+
+        <!-- ===== FEATURES ===== -->
+        <section class="features">
+            <div class="feature-card">
+                <span class="icon">01</span>
                 <h3>Personalized Attention</h3>
                 <p>Every consultation is focused on your individual situation.</p>
             </div>
-        </div>
-    </section>
+            <div class="feature-card">
+                <span class="icon">02</span>
+                <h3>Clear Guidance</h3>
+                <p>Understand your available options and next steps.</p>
+            </div>
+            <div class="feature-card">
+                <span class="icon">03</span>
+                <h3>Easy Booking</h3>
+                <p>Select a suitable date and time for your consultation.</p>
+            </div>
+        </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Thomas Carla Immigration. All rights reserved.</p>
-        </div>
-    </footer>
+        <!-- ===== ABOUT PREVIEW ===== -->
+        <section class="about-preview">
+            <h2 class="section-title">Guidance You Can Understand</h2>
+            <p>Immigration matters can often feel complicated and overwhelming. A professional consultation gives you an opportunity to discuss your situation and better understand the options available to you.</p>
+            <a href="about.html" class="btn-secondary">Learn More About Thomas Carla →</a>
+        </section>
+
+        <!-- ===== SERVICES PREVIEW ===== -->
+        <section class="services-preview">
+            <h2 class="section-title">Immigration Consultation Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <span class="icon">📋</span>
+                    <h3>Immigration Consultation</h3>
+                    <p>Discuss your immigration questions and receive guidance.</p>
+                    <a href="booking.html" class="btn-service">Book Appointment →</a>
+                </div>
+                <div class="service-card">
+                    <span class="icon">🛂</span>
+                    <h3>Visa Consultation</h3>
+                    <p>Get answers to visa-related questions and understand next steps.</p>
+                    <a href="booking.html" class="btn-service">Book Appointment →</a>
+                </div>
+                <div class="service-card">
+                    <span class="icon">⚖️</span>
+                    <h3>Case Discussion</h3>
+                    <p>Schedule a consultation to discuss your immigration situation in detail.</p>
+                    <a href="booking.html" class="btn-service">Book Appointment →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA SECTION ===== -->
+        <section class="cta">
+            <h2>Ready to Get Started?</h2>
+            <a href="booking.html" class="btn-cta">📅 Book a consultation</a>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer>
+            <p>© 2026 Thomas Carla Immigration Consultation.</p>
+            <p>All consultations are confidential.</p>
+        </footer>
+
+    </div>
 
     <script src="script.js"></script>
 </body>
